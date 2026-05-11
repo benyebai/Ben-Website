@@ -110,13 +110,16 @@ export default function Home() {
           {activePanel === "thoughts" && (
             <ListPanel
               title="Thoughts"
-              items={[{ href: "#", title: "coming soon", meta: "writing" }]}
+              items={[{ href: "#", title: "coming soon" }]}
             />
           )}
           {activePanel === "reading" && (
             <ListPanel
               title="Reading"
-              items={[{ href: "#", title: "The Alchemist", meta: "current" }]}
+              items={[
+                { href: "#", title: "When Breath Becomes Air", meta: "current" },
+                { href: "#", title: "The Alchemist", meta: "05.2026" },
+              ]}
             />
           )}
         </div>
@@ -147,7 +150,7 @@ function AboutPanel() {
           </li>
           <li>Researching a bit on world models, mainly V-JEPA</li>
           <li>
-            Reading <strong>The Alchemist</strong>
+            Reading <strong>When Breath Becomes Air</strong>
           </li>
         </ul>
       </div>
@@ -584,7 +587,7 @@ function ListPanel({ title, items }) {
         {items.map((item) => (
           <li key={item.title}>
             <a href={item.href}>{item.title}</a>
-            <span>{item.meta}</span>
+            {item.meta && <span>{item.meta}</span>}
           </li>
         ))}
       </ul>

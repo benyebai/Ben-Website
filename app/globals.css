@@ -221,24 +221,45 @@ a {
 }
 
 .section-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 14px;
+  display: grid;
+  grid-template-columns: auto minmax(24px, 1fr) auto;
+  column-gap: 12px;
+  align-items: center;
+  color: var(--muted);
+  line-height: 1.35;
+  padding-bottom: 0;
+  transition: color 160ms ease;
+}
+
+.section-list li::after {
+  content: "";
+  grid-column: 2;
+  grid-row: 1;
+  height: 3px;
+  background-image: radial-gradient(circle, currentColor 0 1px, transparent 1.2px);
+  background-position: center;
+  background-repeat: space no-repeat;
+  background-size: 8px 3px;
+  opacity: 0.72;
+  align-self: center;
+}
+
+.section-list li:hover,
+.section-list li:focus-within {
+  color: var(--active);
 }
 
 .section-list a {
-  text-decoration-color: var(--line);
-  text-underline-offset: 3px;
+  grid-column: 1;
+  color: inherit;
+  text-decoration: none;
 }
 
 .section-list span {
+  grid-column: 3;
   flex: none;
-  color: var(--muted);
-  font-family: Georgia, "Times New Roman", serif;
+  color: inherit;
   font-size: 14px;
-  font-style: italic;
 }
 
 .project-card {
