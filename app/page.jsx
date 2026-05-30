@@ -117,7 +117,8 @@ export default function Home() {
             <ListPanel
               title="Reading"
               items={[
-                { href: "#", title: "The Stranger", meta: "current" },
+                { href: "#", title: "Stoner", meta: "current" },
+                { href: "#", title: "The Stranger", meta: "05.2026" },
                 { href: "#", title: "When Breath Becomes Air", meta: "05.2026" },
                 { href: "#", title: "The Alchemist", meta: "05.2026" },
               ]}
@@ -151,7 +152,7 @@ function AboutPanel() {
           </li>
           <li>Researching a bit on world models, mainly V-JEPA</li>
           <li>
-            Reading <strong>The Stranger</strong>
+            Reading <strong>Stoner</strong>
           </li>
         </ul>
       </div>
