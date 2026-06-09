@@ -31,11 +31,34 @@ export default function Home() {
   const isProjectWriteup = activePanel === "beyond-kv-cache";
 
   useEffect(() => {
-    const initialPanel = window.location.hash.replace("#", "");
+    const initialPanel = getPanelFromPath(window.location.pathname);
 
     if (panelIds.includes(initialPanel)) {
       setActivePanel(initialPanel);
     }
+
+    function handlePopState() {
+      const nextPanel = getPanelFromPath(window.location.pathname);
+
+      if (panelIds.includes(nextPanel)) {
+        setTransitionScope("content");
+        setIsTransitioning(true);
+
+        window.setTimeout(() => {
+          setActivePanel(nextPanel);
+
+          window.requestAnimationFrame(() => {
+            setIsTransitioning(false);
+          });
+        }, 220);
+      }
+    }
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
   }, []);
 
   function showPanel(id, scope = "content") {
@@ -43,7 +66,7 @@ export default function Home() {
       return;
     }
 
-    window.history.replaceState(null, "", `#${id}`);
+    window.history.pushState(null, "", getPathForPanel(id));
     setTransitionScope(scope);
     setIsTransitioning(true);
 
@@ -106,6 +129,52 @@ export default function Home() {
       </main>
     </div>
   );
+}
+
+function getPanelFromPath(pathname) {
+  const normalizedPath = pathname.replace(/\/+$/, "") || "/";
+
+  if (normalizedPath === "/") {
+    return "about";
+  }
+
+  if (normalizedPath === "/projects") {
+    return "projects";
+  }
+
+  if (normalizedPath === "/projects/beyond-kv-cache") {
+    return "beyond-kv-cache";
+  }
+
+  if (normalizedPath === "/thoughts") {
+    return "thoughts";
+  }
+
+  if (normalizedPath.startsWith("/thoughts/")) {
+    return normalizedPath.replace("/thoughts/", "");
+  }
+
+  if (normalizedPath === "/reading") {
+    return "reading";
+  }
+
+  return "about";
+}
+
+function getPathForPanel(panelId) {
+  if (panelId === "about") {
+    return "/";
+  }
+
+  if (panelId === "beyond-kv-cache") {
+    return "/projects/beyond-kv-cache";
+  }
+
+  if (thoughtIds.includes(panelId)) {
+    return `/thoughts/${panelId}`;
+  }
+
+  return `/${panelId}`;
 }
 
 function getNavId(panelId) {

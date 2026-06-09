@@ -1,9 +1,11 @@
 const thought = {
   "id": "a-life-misunderstood",
-  "href": "#a-life-misunderstood",
+  "href": "/thoughts/a-life-misunderstood",
   "title": "A Life Misunderstood",
   "meta": "06.2026",
   "createdAt": "2026-06-08T07:49:06.684Z",
+  "updatedAt": "2026-06-09T05:18:59.122Z",
+  "updatedMeta": "06.2026",
   "paragraphs": [
     "You can read self health books, read through hundreds of quotes, yet nothing really makes you understand deeply. You hear it, you can reason with it, but the next day you move on, never really internalizing the words. Its the same with me.",
     "However, perhaps some find you at the right time, and one quote in particular has genuinely started ringing in my mind and in the way i perceive and take action.",

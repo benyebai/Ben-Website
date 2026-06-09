@@ -1,9 +1,11 @@
 const thought = {
   "id": "straying-away-from-modern",
-  "href": "#straying-away-from-modern",
+  "href": "/thoughts/straying-away-from-modern",
   "title": "Straying Away From Modern",
   "meta": "06.2026",
   "createdAt": "2026-06-08T07:49:29.124Z",
+  "updatedAt": "2026-06-09T05:09:06.475Z",
+  "updatedMeta": "06.2026",
   "paragraphs": [
     "I want to be more intentional.",
     "The modern world has now given us too much choice. As you try to focus on anything, you feel a constant pull of attention from many sources. The primmest example is your phone, with a one swipe you can switch from youtube, to reels, to books, to games, an endless struggle to focus. I fear the people before us didn't have such quite problems, they probably faced the monotonous tone of boredom, forcing them to take care into academics, art, philosophy.",

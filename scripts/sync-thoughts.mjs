@@ -24,14 +24,25 @@ const thoughts = await Promise.all(
     const title = path.basename(file, ".md");
     const id = slugify(title);
     const createdAt = sourceStats.birthtime.toISOString();
+    const updatedAt = sourceStats.mtime.toISOString();
     const meta = formatMonthYear(sourceStats.birthtime);
+    const updatedMeta = formatMonthYear(sourceStats.mtime);
     const content = await readFile(sourcePath, "utf8");
     const paragraphs = content
       .split(/\n\s*\n/)
       .map((paragraph) => paragraph.trim())
       .filter(Boolean);
 
-    return { createdAt, fileName: `${id}.js`, id, meta, paragraphs, title };
+    return {
+      createdAt,
+      fileName: `${id}.js`,
+      id,
+      meta,
+      paragraphs,
+      title,
+      updatedAt,
+      updatedMeta,
+    };
   }),
 );
 
@@ -51,10 +62,12 @@ for (const thought of thoughts) {
     `const thought = ${JSON.stringify(
       {
         id: thought.id,
-        href: `#${thought.id}`,
+        href: `/thoughts/${thought.id}`,
         title: thought.title,
         meta: thought.meta,
         createdAt: thought.createdAt,
+        updatedAt: thought.updatedAt,
+        updatedMeta: thought.updatedMeta,
         paragraphs: thought.paragraphs,
       },
       null,
