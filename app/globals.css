@@ -131,6 +131,17 @@ a {
   margin-left: -2px;
 }
 
+.section-subscript {
+  margin: -18px 0 28px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.section-subscript small {
+  font-size: inherit;
+}
+
 .intro p {
   margin: 0 0 16px;
 }
@@ -249,9 +260,17 @@ a {
   color: var(--active);
 }
 
-.section-list a {
+.section-list a,
+.section-list button {
   grid-column: 1;
+  appearance: none;
+  background: transparent;
+  border: 0;
   color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-align: left;
   text-decoration: none;
 }
 
