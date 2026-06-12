@@ -12,7 +12,7 @@ export default function AboutPanel() {
           </li>
           <li>Researching a bit on world models, mainly V-JEPA</li>
           <li>
-            Reading <strong>Stoner</strong>
+            Reading <strong>The Remains of the Day</strong>
           </li>
         </ul>
       </div>
