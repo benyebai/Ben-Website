@@ -55,8 +55,9 @@ a {
 }
 
 .side-nav {
-  position: sticky;
+  position: fixed;
   top: 56px;
+  left: max(28px, calc(50vw - 342px));
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -556,6 +557,7 @@ a {
 
   .side-nav {
     position: static;
+    left: auto;
     width: auto;
     flex-direction: row;
     justify-content: center;
