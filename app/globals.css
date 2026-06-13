@@ -34,11 +34,12 @@ a {
 }
 
 .site-shell {
+  width: min(100%, 740px);
   min-height: 100vh;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 96px minmax(0, 560px);
   gap: 28px;
-  justify-content: center;
   align-items: start;
   padding: 56px 28px;
   opacity: 1;
@@ -50,14 +51,14 @@ a {
 }
 
 .writeup-shell {
+  width: min(100%, 776px);
   grid-template-columns: minmax(0, 720px);
   padding-top: 64px;
 }
 
 .side-nav {
-  position: fixed;
+  position: sticky;
   top: 56px;
-  left: max(28px, calc(50vw - 342px));
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -546,6 +547,7 @@ a {
 
 @media (max-width: 720px) {
   .site-shell {
+    width: 100%;
     min-height: auto;
     display: block;
     padding: 24px 20px 40px;
@@ -557,7 +559,6 @@ a {
 
   .side-nav {
     position: static;
-    left: auto;
     width: auto;
     flex-direction: row;
     justify-content: center;
