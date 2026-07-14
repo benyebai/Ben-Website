@@ -25,8 +25,8 @@ const panelIds = [
   ...thoughtIds,
 ];
 
-export default function Home() {
-  const [activePanel, setActivePanel] = useState("about");
+export default function Home({ initialPanel = "about" }) {
+  const [activePanel, setActivePanel] = useState(initialPanel);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionScope, setTransitionScope] = useState("content");
   const activeThought = thoughts.find((thought) => thought.id === activePanel);
