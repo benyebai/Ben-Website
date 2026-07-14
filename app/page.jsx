@@ -7,6 +7,7 @@ import ProjectsPanel from "./components/ProjectsPanel";
 import ReadingPanel from "./components/ReadingPanel";
 import ThoughtArticlePanel from "./components/ThoughtArticlePanel";
 import ThoughtsPanel from "./components/ThoughtsPanel";
+import LeMarioPanel from "./components/LeMarioPanel";
 import thoughts from "./content/thoughts";
 
 const navItems = [
@@ -20,6 +21,7 @@ const thoughtIds = thoughts.map((thought) => thought.id);
 const panelIds = [
   ...navItems.map((item) => item.id),
   "beyond-kv-cache",
+  "lemario",
   ...thoughtIds,
 ];
 
@@ -28,7 +30,7 @@ export default function Home() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionScope, setTransitionScope] = useState("content");
   const activeThought = thoughts.find((thought) => thought.id === activePanel);
-  const isProjectWriteup = activePanel === "beyond-kv-cache";
+  const isProjectWriteup = ["beyond-kv-cache", "lemario"].includes(activePanel);
 
   useEffect(() => {
     const initialPanel = getPanelFromPath(window.location.pathname);
@@ -110,11 +112,15 @@ export default function Home() {
           {activePanel === "about" && <AboutPanel />}
           {activePanel === "projects" && (
             <ProjectsPanel
-              onOpenProject={() => showPanel("beyond-kv-cache", "shell")}
+              onOpenBeyondKvCache={() => showPanel("beyond-kv-cache", "shell")}
+              onOpenLeMario={() => showPanel("lemario", "shell")}
             />
           )}
           {activePanel === "beyond-kv-cache" && (
             <BeyondKvCachePanel onBack={() => showPanel("projects", "shell")} />
+          )}
+          {activePanel === "lemario" && (
+            <LeMarioPanel onBack={() => showPanel("projects", "shell")} />
           )}
           {activePanel === "thoughts" && (
             <ThoughtsPanel
@@ -146,6 +152,13 @@ function getPanelFromPath(pathname) {
     return "beyond-kv-cache";
   }
 
+  if (
+    normalizedPath === "/projects/lemario" ||
+    normalizedPath === "/projects/tiny-lewm"
+  ) {
+    return "lemario";
+  }
+
   if (normalizedPath === "/thoughts") {
     return "thoughts";
   }
@@ -170,6 +183,10 @@ function getPathForPanel(panelId) {
     return "/projects/beyond-kv-cache";
   }
 
+  if (panelId === "lemario") {
+    return "/projects/lemario";
+  }
+
   if (thoughtIds.includes(panelId)) {
     return `/thoughts/${panelId}`;
   }
@@ -178,7 +195,7 @@ function getPathForPanel(panelId) {
 }
 
 function getNavId(panelId) {
-  if (panelId === "beyond-kv-cache") {
+  if (["beyond-kv-cache", "lemario"].includes(panelId)) {
     return "projects";
   }
 
