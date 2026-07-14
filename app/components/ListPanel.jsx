@@ -18,6 +18,11 @@ export default function ListPanel({ title, subtitle, items, onSelectItem }) {
               <a href={item.href}>{item.title}</a>
             )}
             {item.meta && <span>{item.meta}</span>}
+            {item.description && (
+              <small className="section-item-description">
+                {item.description}
+              </small>
+            )}
           </li>
         ))}
       </ul>
