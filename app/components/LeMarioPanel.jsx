@@ -36,6 +36,10 @@ export default function LeMarioPanel({ onBack }) {
         <a href="https://github.com/benyebai/LeMario" target="_blank" rel="noreferrer">
           GitHub
         </a>
+        <span className="article-separator" aria-hidden="true">·</span>
+        <a href="https://x.com/benbye/status/2077092137657905211?s=20" target="_blank" rel="noreferrer">
+          X
+        </a>
       </div>
       <section className="article-section" aria-labelledby="lemario-introduction">
         <p>I wanted to reproduce <a href="https://arxiv.org/abs/2603.19312" target="_blank" rel="noreferrer">LeWorldModel</a>, a small Joint-Embedding Predictive Architecture (JEPA) that learns world dynamics from pixels and actions. The original paper used it for reward-free planning in Push-T. But, since I loved video games, and at the same time wanted to learn more deeply about LeCun&apos;s JEPA architecture, I decided to write the whole architecture from scratch and train it on Super Mario Bros.</p>
