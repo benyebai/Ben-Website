@@ -27,6 +27,15 @@ export default function AboutPanel() {
         This is a place to share my thoughts to the world, whether that be my
         projects, experiences, readings, or just random thoughts.
       </p>
+      <nav className="about-links" aria-label="Contact links">
+        <a href="https://github.com/benyebai" target="_blank" rel="noreferrer">
+          github
+        </a>
+        <a href="https://x.com/benbye" target="_blank" rel="noreferrer">
+          X
+        </a>
+        <a href="mailto:benjamin.bai@uwaterloo.ca">email</a>
+      </nav>
     </section>
   );
 }

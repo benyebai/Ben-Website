@@ -149,6 +149,27 @@ a {
   margin: 0 0 16px;
 }
 
+.about-links {
+  display: flex;
+  gap: 14px;
+  margin: 3px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12.5px;
+  font-style: italic;
+}
+
+.about-links a {
+  color: var(--muted);
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  transition: color 160ms ease;
+}
+
+.about-links a:hover,
+.about-links a:focus-visible {
+  color: var(--active);
+}
+
 .intro strong {
   position: relative;
   display: inline-block;
