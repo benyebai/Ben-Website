@@ -23,7 +23,7 @@ export default function LeMarioPanel({ onBack }) {
         <span aria-hidden="true">‹</span>
         back to projects
       </button>
-      <h2 id="lemario-title">LeMario: Super Mario Bros trained on a JEPA Model</h2>
+      <h2 id="lemario-title">LeMario: A JEPA Model trained on Super Mario Bros </h2>
       <div className="article-meta" aria-label="Article metadata">
         <span>Benjamin Bai</span>
         <span className="article-separator" aria-hidden="true">·</span>
