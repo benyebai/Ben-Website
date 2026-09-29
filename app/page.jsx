@@ -13,8 +13,8 @@ import thoughts from "./content/thoughts";
 const navItems = [
   { id: "about", label: "about" },
   { id: "projects", label: "projects" },
-  { id: "thoughts", label: "thoughts" },
   { id: "reading", label: "reading" },
+  { id: "thoughts", label: "thoughts" },
 ];
 
 const thoughtIds = thoughts.map((thought) => thought.id);
