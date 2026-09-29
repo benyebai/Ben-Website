@@ -416,6 +416,15 @@ a {
   animation: reading-modal-in 220ms ease both;
 }
 
+.reading-modal-layer.is-closing {
+  pointer-events: none;
+  animation: reading-backdrop-out 200ms ease both;
+}
+
+.reading-modal-layer.is-closing .reading-modal {
+  animation: reading-modal-out 200ms ease both;
+}
+
 .reading-modal-close {
   appearance: none;
   position: absolute;
@@ -527,6 +536,19 @@ a {
 
 @keyframes reading-modal-in {
   from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+
+@keyframes reading-backdrop-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes reading-modal-out {
+  to {
     opacity: 0;
     transform: translateX(24px);
   }

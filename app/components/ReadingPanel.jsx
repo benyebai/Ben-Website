@@ -57,6 +57,7 @@ const sections = [
 
 export default function ReadingPanel() {
   const [openItem, setOpenItem] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
   const closeButtonRef = useRef(null);
   const selectedItem = sections
     .flatMap((section) =>
@@ -82,11 +83,30 @@ export default function ReadingPanel() {
   }, [openItem]);
 
   function openReadingItem(id) {
+    setIsClosing(false);
     setOpenItem(id);
   }
 
   function closeItem() {
+    if (isClosing) {
+      return;
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setOpenItem(null);
+      return;
+    }
+
+    setIsClosing(true);
+  }
+
+  function finishClosing(event) {
+    if (!isClosing || event.target !== event.currentTarget) {
+      return;
+    }
+
     setOpenItem(null);
+    setIsClosing(false);
   }
 
   return (
@@ -135,13 +155,17 @@ export default function ReadingPanel() {
       ))}
 
       {selectedItem && (
-        <div className="reading-modal-layer" onMouseDown={closeItem}>
+        <div
+          className={`reading-modal-layer ${isClosing ? "is-closing" : ""}`}
+          onMouseDown={closeItem}
+        >
           <aside
             className="reading-modal"
             role="dialog"
             aria-modal="true"
             aria-labelledby="reading-modal-title"
             onMouseDown={(event) => event.stopPropagation()}
+            onAnimationEnd={finishClosing}
           >
             <button
               ref={closeButtonRef}
