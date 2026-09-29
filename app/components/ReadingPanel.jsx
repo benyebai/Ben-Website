@@ -4,6 +4,25 @@ import { useEffect, useRef, useState } from "react";
 
 const sections = [
   {
+    id: "papers",
+    title: "Research Papers",
+    items: [
+      {
+        id: "massively-multitask-world-models",
+        title: "Learning Massively Multitask World Models for Continuous Control",
+        meta: "11.2025",
+        href: "https://arxiv.org/abs/2511.19584",
+        summary:
+          "Most attempts at general-purpose control still focus on a single task or learn offline from expert data, which limits both scale and data diversity. Inspired by the LLM recipe, Newt first pretrains one model on demonstrations from many tasks and environments, then continues with online RL across 200 tasks to learn useful behavior.",
+        highlights: [
+          "A language-conditioned world model trained jointly across 200 tasks with online RL, instead of narrow single-task objectives or offline RL alone.",
+          "Architecture and training-pipeline changes that make large multitask training runs more efficient.",
+          "A new benchmark spanning 200 tasks across multiple domains and embodiments.",
+        ],
+      },
+    ],
+  },
+  {
     id: "books",
     title: "Books",
     items: [
@@ -31,25 +50,6 @@ const sections = [
         id: "the-alchemist",
         title: "The Alchemist",
         meta: "05.2026",
-      },
-    ],
-  },
-  {
-    id: "papers",
-    title: "Research Papers",
-    items: [
-      {
-        id: "massively-multitask-world-models",
-        title: "Learning Massively Multitask World Models for Continuous Control",
-        meta: "11.2025",
-        href: "https://arxiv.org/abs/2511.19584",
-        summary:
-          "Most attempts at general-purpose control still focus on a single task or learn offline from expert data, which limits both scale and data diversity. Inspired by the LLM recipe, Newt first pretrains one model on demonstrations from many tasks and environments, then continues with online RL across 200 tasks to learn useful behavior.",
-        highlights: [
-          "A language-conditioned world model trained jointly across 200 tasks with online RL, instead of narrow single-task objectives or offline RL alone.",
-          "Architecture and training-pipeline changes that make large multitask training runs more efficient.",
-          "A new benchmark spanning 200 tasks across multiple domains and embodiments.",
-        ],
       },
     ],
   },
@@ -136,9 +136,6 @@ export default function ReadingPanel() {
                       <span className="reading-title">{item.title}</span>
                       <span className="reading-dots" aria-hidden="true" />
                       <span className="reading-meta">{item.meta}</span>
-                      <span className="reading-toggle" aria-hidden="true">
-                        ↗
-                      </span>
                     </button>
                   ) : (
                     <div className="reading-row">
