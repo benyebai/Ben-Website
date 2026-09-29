@@ -10,7 +10,7 @@ const sections = [
       {
         id: "massively-multitask-world-models",
         title: "Learning Massively Multitask World Models for Continuous Control",
-        meta: "11.2025",
+        meta: "09.2026",
         href: "https://arxiv.org/abs/2511.19584",
         summary:
           "Most attempts at general-purpose control still focus on a single task or learn offline from expert data, which limits both scale and data diversity. Inspired by the LLM recipe, Newt first pretrains one model on demonstrations from many tasks and environments, then continues with online RL across 200 tasks to learn useful behavior.",
