@@ -379,21 +379,13 @@ a {
   max-width: 100%;
 }
 
-.reading-trigger .reading-title::before,
 .reading-trigger .reading-title::after {
   content: "";
   position: absolute;
   right: 0;
-  bottom: -1px;
+  bottom: -3px;
   left: 0;
   height: 2px;
-}
-
-.reading-trigger .reading-title::before {
-  background: var(--muted);
-}
-
-.reading-trigger .reading-title::after {
   background: #111111;
   transform: scaleX(0);
   transform-origin: left;
@@ -401,8 +393,7 @@ a {
 }
 
 .reading-trigger:hover .reading-title::after,
-.reading-trigger:focus-visible .reading-title::after,
-.reading-trigger[aria-expanded="true"] .reading-title::after {
+.reading-trigger:focus-visible .reading-title::after {
   transform: scaleX(1);
 }
 
