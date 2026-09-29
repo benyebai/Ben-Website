@@ -7,10 +7,7 @@ export default function AboutPanel() {
       <div className="current-work">
         <p>currently:</p>
         <ul>
-          <li>
-            Working on inference at <strong>TensorMesh</strong>
-          </li>
-          <li>Researching a bit on world models, mainly V-JEPA</li>
+          <li>Researching world models</li>
           <li>
             Reading <strong>The Remains of the Day</strong>
           </li>
@@ -18,10 +15,10 @@ export default function AboutPanel() {
       </div>
 
       <p>
-        Previously worked on Notebooks at <strong>Databricks</strong>,
-        AI-Gateway/Agents at <strong>Vercel</strong>, Instagram at{" "}
-        <strong>Meta</strong>, and AI onboarding workflows at{" "}
-        <strong>Shopify</strong>.
+        Previously worked on inference at <strong>TensorMesh</strong>, Notebooks
+        at <strong>Databricks</strong>, AI-Gateway/Agents at{" "}
+        <strong>Vercel</strong>, Instagram at <strong>Meta</strong>, and AI
+        onboarding workflows at <strong>Shopify</strong>.
       </p>
       <p>
         This is a place to share my thoughts to the world, whether that be my
