@@ -5,19 +5,6 @@ export default function AboutPanel() {
       <p>I study Computer Science at the University of Waterloo.</p>
 
       <div className="work-list">
-        <p>currently:</p>
-        <ul>
-          <li>Researching world models</li>
-          <li>
-            Reading <strong>The Remains of the Day</strong>
-          </li>
-          <li>
-            Peaked <strong>Immortal 1</strong> in Valorant
-          </li>
-        </ul>
-      </div>
-
-      <div className="work-list">
         <p>previously:</p>
         <ul>
           <li>
@@ -37,10 +24,37 @@ export default function AboutPanel() {
           </li>
         </ul>
       </div>
+
+      <div className="work-list">
+        <p>currently:</p>
+        <ul>
+          <li>Researching world models</li>
+          <li>
+            Reading <strong>The Remains of the Day</strong>
+          </li>
+        </ul>
+      </div>
+
       <p>
         This is a place to share my thoughts to the world, whether that be my
         projects, experiences, readings, or just random thoughts.
       </p>
+
+      <div className="work-list">
+        <p>fun facts:</p>
+        <ul>
+          <li>
+            Peaked <strong>Immortal 1</strong> in Valorant
+          </li>
+          <li>
+            Love movies; my favorite is <strong>Good Will Hunting</strong>
+          </li>
+          <li>Trying to become a fine-dining cook in my free time</li>
+          <li>Played national volleyball</li>
+          <li>Used to teach skiing, swimming, and piano</li>
+        </ul>
+      </div>
+
       <nav className="about-links" aria-label="Contact links">
         <a href="https://github.com/benyebai" target="_blank" rel="noreferrer">
           github
