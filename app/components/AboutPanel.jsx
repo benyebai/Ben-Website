@@ -4,6 +4,21 @@ export default function AboutPanel() {
       <h1 id="intro-title">Ben</h1>
       <p>I study Computer Science at the University of Waterloo.</p>
 
+      <p>
+        This is a place to share my thoughts to the world, whether that be my
+        projects, experiences, readings, or just random thoughts.
+      </p>
+
+      <div className="work-list">
+        <p>currently:</p>
+        <ul>
+          <li>Researching world models</li>
+          <li>
+            Reading <strong>The Remains of the Day</strong>
+          </li>
+        </ul>
+      </div>
+
       <div className="work-list">
         <p>previously:</p>
         <ul>
@@ -24,21 +39,6 @@ export default function AboutPanel() {
           </li>
         </ul>
       </div>
-
-      <div className="work-list">
-        <p>currently:</p>
-        <ul>
-          <li>Researching world models</li>
-          <li>
-            Reading <strong>The Remains of the Day</strong>
-          </li>
-        </ul>
-      </div>
-
-      <p>
-        This is a place to share my thoughts to the world, whether that be my
-        projects, experiences, readings, or just random thoughts.
-      </p>
 
       <div className="work-list">
         <p>fun facts:</p>
