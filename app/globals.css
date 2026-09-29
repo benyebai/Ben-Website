@@ -202,16 +202,16 @@ a {
   transform: scaleX(1);
 }
 
-.current-work {
+.work-list {
   margin: 0 0 12px;
 }
 
-.current-work p {
+.work-list p {
   margin-bottom: 4px;
   color: var(--active);
 }
 
-.current-work ul {
+.work-list ul {
   display: grid;
   gap: 3px;
   margin: 0;
@@ -219,7 +219,7 @@ a {
   list-style: none;
 }
 
-.current-work li {
+.work-list li {
   position: relative;
   padding-left: 20px;
   color: var(--foreground);
@@ -229,7 +229,7 @@ a {
     transform 160ms ease;
 }
 
-.current-work li::before {
+.work-list li::before {
   content: "›";
   position: absolute;
   left: 0;
@@ -238,12 +238,12 @@ a {
   transition: color 160ms ease;
 }
 
-.current-work li:hover {
+.work-list li:hover {
   color: var(--active);
   transform: translateX(5px);
 }
 
-.current-work li:hover::before {
+.work-list li:hover::before {
   color: var(--active);
 }
 

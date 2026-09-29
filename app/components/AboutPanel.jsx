@@ -4,7 +4,7 @@ export default function AboutPanel() {
       <h1 id="intro-title">Ben</h1>
       <p>I study Computer Science at the University of Waterloo.</p>
 
-      <div className="current-work">
+      <div className="work-list">
         <p>currently:</p>
         <ul>
           <li>Researching world models</li>
@@ -17,12 +17,26 @@ export default function AboutPanel() {
         </ul>
       </div>
 
-      <p>
-        Previously worked on inference at <strong>TensorMesh</strong>, Notebooks
-        at <strong>Databricks</strong>, AI-Gateway/Agents at{" "}
-        <strong>Vercel</strong>, Instagram at <strong>Meta</strong>, and AI
-        onboarding workflows at <strong>Shopify</strong>.
-      </p>
+      <div className="work-list">
+        <p>previously:</p>
+        <ul>
+          <li>
+            Inference at <strong>TensorMesh</strong>
+          </li>
+          <li>
+            Notebooks at <strong>Databricks</strong>
+          </li>
+          <li>
+            AI-Gateway/Agents at <strong>Vercel</strong>
+          </li>
+          <li>
+            Instagram at <strong>Meta</strong>
+          </li>
+          <li>
+            AI onboarding workflows at <strong>Shopify</strong>
+          </li>
+        </ul>
+      </div>
       <p>
         This is a place to share my thoughts to the world, whether that be my
         projects, experiences, readings, or just random thoughts.
