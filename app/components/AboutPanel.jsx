@@ -11,6 +11,9 @@ export default function AboutPanel() {
           <li>
             Reading <strong>The Remains of the Day</strong>
           </li>
+          <li>
+            Peaked <strong>Immortal 1</strong> in Valorant
+          </li>
         </ul>
       </div>
 
