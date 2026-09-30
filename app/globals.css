@@ -506,20 +506,20 @@ a {
 }
 
 .reading-modal-note h4 {
-  margin: 28px 0 8px;
+  margin: 0 0 10px;
   color: var(--active);
   font-size: 12px;
   font-weight: 600;
   line-height: 1.4;
 }
 
-.reading-modal-note h4:first-child {
-  margin-top: 0;
+.reading-modal-section + .reading-modal-section {
+  margin-top: 30px;
 }
 
 .reading-modal-note ul {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   margin: 0;
   padding-left: 18px;
 }
@@ -528,7 +528,7 @@ a {
   padding-left: 2px;
 }
 
-.reading-modal-detail p + p {
+.reading-modal-section p + p {
   margin-top: 12px;
 }
 

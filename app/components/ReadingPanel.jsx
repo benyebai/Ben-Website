@@ -206,16 +206,20 @@ export default function ReadingPanel() {
             <h3 id="reading-modal-title">{selectedItem.title}</h3>
             <p className="reading-modal-meta">{selectedItem.meta}</p>
             <div className="reading-modal-note">
-              <h4>Summary</h4>
-              <p>{selectedItem.summary}</p>
-              <h4>{selectedItem.highlightsTitle || "What’s new"}</h4>
-              <ul>
-                {selectedItem.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
+              <section className="reading-modal-section">
+                <h4>Summary</h4>
+                <p>{selectedItem.summary}</p>
+              </section>
+              <section className="reading-modal-section">
+                <h4>{selectedItem.highlightsTitle || "What’s new"}</h4>
+                <ul>
+                  {selectedItem.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </section>
               {selectedItem.details?.map((detail) => (
-                <section className="reading-modal-detail" key={detail.title}>
+                <section className="reading-modal-section" key={detail.title}>
                   <h4>{detail.title}</h4>
                   {detail.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
