@@ -32,6 +32,7 @@ export default function ProjectsPanel({ onOpenBeyondKvCache, onOpenLeMario }) {
       title="Projects"
       items={projects}
       onSelectItem={openProject}
+      className="projects-panel"
     />
   );
 }

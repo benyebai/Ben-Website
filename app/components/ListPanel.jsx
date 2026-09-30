@@ -1,6 +1,15 @@
-export default function ListPanel({ title, subtitle, items, onSelectItem }) {
+export default function ListPanel({
+  title,
+  subtitle,
+  items,
+  onSelectItem,
+  className = "",
+}) {
   return (
-    <section className="content-section" aria-labelledby={`${title}-title`}>
+    <section
+      className={`content-section ${className}`.trim()}
+      aria-labelledby={`${title}-title`}
+    >
       <h2 id={`${title}-title`}>{title}</h2>
       {subtitle && (
         <p className="section-subscript">

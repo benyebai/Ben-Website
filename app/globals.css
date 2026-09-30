@@ -315,6 +315,29 @@ a {
   line-height: 1.55;
 }
 
+.projects-panel .section-list button {
+  position: relative;
+  width: fit-content;
+}
+
+.projects-panel .section-list button::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  left: 0;
+  height: 2px;
+  background: #111111;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.projects-panel .section-list button:hover::after,
+.projects-panel .section-list button:focus-visible::after {
+  transform: scaleX(1);
+}
+
 .reading-section + .reading-section {
   margin-top: 36px;
 }
