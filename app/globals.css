@@ -315,12 +315,14 @@ a {
   line-height: 1.55;
 }
 
-.projects-panel .section-list button {
+.projects-panel .section-list button,
+.thoughts-panel .section-list button {
   position: relative;
   width: fit-content;
 }
 
-.projects-panel .section-list button::after {
+.projects-panel .section-list button::after,
+.thoughts-panel .section-list button::after {
   content: "";
   position: absolute;
   right: 0;
@@ -334,7 +336,9 @@ a {
 }
 
 .projects-panel .section-list button:hover::after,
-.projects-panel .section-list button:focus-visible::after {
+.projects-panel .section-list button:focus-visible::after,
+.thoughts-panel .section-list button:hover::after,
+.thoughts-panel .section-list button:focus-visible::after {
   transform: scaleX(1);
 }
 

@@ -8,6 +8,7 @@ export default function ThoughtsPanel({ onOpenThought }) {
       subtitle="No AI. These are my own thoughts, whether unfinished, rough, or polished. I also like revisit topics and update them!"
       items={thoughts}
       onSelectItem={onOpenThought}
+      className="thoughts-panel"
     />
   );
 }
