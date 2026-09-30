@@ -528,6 +528,10 @@ a {
   padding-left: 2px;
 }
 
+.reading-modal-detail p + p {
+  margin-top: 12px;
+}
+
 .reading-modal-link {
   display: inline-block;
   margin-top: 24px;

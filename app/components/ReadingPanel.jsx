@@ -20,6 +20,35 @@ const sections = [
           "A new benchmark spanning 200 tasks across multiple domains and embodiments.",
         ],
       },
+      {
+        id: "dreamerv3",
+        title: "DreamerV3: Mastering Diverse Domains through World Models",
+        meta: "09.2026",
+        href: "https://arxiv.org/pdf/2301.04104",
+        summary:
+          "Many reinforcement-learning algorithms need task-specific hyperparameter tuning or expert data, then train on only one task or environment. DreamerV3 instead learns a world model and performs RL inside its own imagined trajectories, allowing it to work across very different domains with significantly fewer interactions with the real environment.",
+        highlightsTitle: "What’s the innovation?",
+        highlights: [
+          "Breadth: the same algorithm works across a wide range of tasks and environments.",
+          "Robust normalization, balancing, and transformation techniques reduce task-specific tuning. They compress difficult numerical scales, balance competing model objectives, and reshape unusual distributions into forms that are easier to learn from.",
+          "Scaling: larger models perform better while requiring fewer interactions with the environment.",
+        ],
+        details: [
+          {
+            title: "Architecture",
+            paragraphs: [
+              "In Mario terms: the actor plays the game while images, actions, rewards, and other information are recorded. The world model learns from that experience, then the actor tries actions inside the learned world. The model predicts what happens and what reward follows, the critic judges those imagined outcomes, and the actor learns which choices to repeat or avoid before returning to the real game.",
+              "Under the hood, DreamerV3 uses a CNN to encode images, a GRU-based recurrent state-space model (RSSM) to remember the past and predict future latent states, a CNN decoder and MLP heads to reconstruct observations and predict rewards and episode endings, and separate MLP actor and critic networks that learn from imagined trajectories.",
+            ],
+          },
+          {
+            title: "Techniques",
+            paragraphs: [
+              "Symlog and two-hot representations handle wildly different numerical scales. Return normalization stabilizes the actor. Balanced losses and free bits keep the latent state both informative and predictable. Uniform mixing prevents overconfident latent predictions, while a slowly updated critic and zero initialization stabilize value learning.",
+            ],
+          },
+        ],
+      },
     ],
   },
   {
@@ -179,12 +208,20 @@ export default function ReadingPanel() {
             <div className="reading-modal-note">
               <h4>Summary</h4>
               <p>{selectedItem.summary}</p>
-              <h4>What’s new</h4>
+              <h4>{selectedItem.highlightsTitle || "What’s new"}</h4>
               <ul>
                 {selectedItem.highlights.map((highlight) => (
                   <li key={highlight}>{highlight}</li>
                 ))}
               </ul>
+              {selectedItem.details?.map((detail) => (
+                <section className="reading-modal-detail" key={detail.title}>
+                  <h4>{detail.title}</h4>
+                  {detail.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </section>
+              ))}
             </div>
             {selectedItem.href && (
               <a
