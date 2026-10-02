@@ -134,7 +134,7 @@ export default function BeyondKvCachePanel({ onBack }) {
           first go back to understand encoding a bit better, especially when it
           comes to images and videos.
         </p>
-        <figure className="article-image">
+        <figure className="article-image article-image-wide">
           <Image
             src={fatCat}
             alt="Diagram showing image and video inputs split into patches, flattened into tokens, and processed by transformer encoder self-attention"
@@ -234,7 +234,7 @@ export default function BeyondKvCachePanel({ onBack }) {
         <h3 id="indexing-granularity-cache-hit">
           Indexing: the granularity and looseness of a cache hit
         </h3>
-        <figure className="article-image">
+        <figure className="article-image article-image-wide">
           <Image
             src={rickroll}
             alt="Diagram showing video, audio, and image embeddings mapped into an EC cache engine key"

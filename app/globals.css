@@ -660,6 +660,14 @@ a {
   height: auto;
 }
 
+.article-image-wide {
+  width: min(100%, 640px);
+}
+
+.article-image-wide img {
+  width: 100%;
+}
+
 .article-image-shift-left img {
   transform: translateX(-16px);
 }
