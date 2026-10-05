@@ -49,6 +49,38 @@ const sections = [
           },
         ],
       },
+      {
+        id: "lidar-latent-flow-matching",
+        title:
+          "Towards Foundational LiDAR World Models with Efficient Latent Flow Matching",
+        meta: "10.2026",
+        href: "https://arxiv.org/pdf/2506.23434",
+        summary:
+          "This is a more efficient world model built around LiDAR occupancy data. Conceptually, it learns predictive latent representations like a JEPA-style model, but uses geometry-aware LiDAR instead of images, where depth and 3D structure are harder to recover. The authors show that fine-tuning one pretrained model works better than training task-specific models from scratch across different sensors, environments, and tasks.",
+        highlightsTitle: "What’s the innovation?",
+        highlights: [
+          "A latent conditional flow-matching design that needs less training data and compresses LiDAR representations much more aggressively while maintaining state-of-the-art reconstruction and semantic forecasting.",
+          "Fine-tuning the pretrained world model outperforms training specialized models from scratch while using substantially less labeled data.",
+          "Compared with prior LiDAR world models, it preserves stronger reconstruction and forecasting information despite a much smaller latent representation.",
+        ],
+        details: [
+          {
+            title: "Architecture",
+            bullets: [
+              "Swin Transformer VAE: compresses LiDAR occupancy data into smooth, sampleable latent representations. The shifted-window design limits attention to local windows, making it more efficient than global attention while still learning compression and reconstruction.",
+              "Spatiotemporal Diffusion Transformer-style backbone: predicts future latent states across space and time.",
+              "Conditional Flow Matching / Rectified Flow: learns a direct path from noise toward a plausible future conditioned on past frames. Using a straighter path than conventional diffusion makes forecasting faster and more efficient.",
+            ],
+          },
+          {
+            title: "Questions",
+            bullets: [
+              "Why use a VAE instead of a pretrained encoder such as DINO? Does the evidence from representation autoencoders suggest that a pretrained encoder could work better?",
+              "What role does the cosine-alignment objective play, and what is it encouraging the latent representation to preserve?",
+            ],
+          },
+        ],
+      },
     ],
   },
   {
@@ -221,9 +253,16 @@ export default function ReadingPanel() {
               {selectedItem.details?.map((detail) => (
                 <section className="reading-modal-section" key={detail.title}>
                   <h4>{detail.title}</h4>
-                  {detail.paragraphs.map((paragraph) => (
+                  {detail.paragraphs?.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
+                  {detail.bullets && (
+                    <ul>
+                      {detail.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  )}
                 </section>
               ))}
             </div>
