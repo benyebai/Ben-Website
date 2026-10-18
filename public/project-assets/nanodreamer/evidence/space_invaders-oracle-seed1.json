@@ -1,0 +1,238 @@
+{
+  "game": "space_invaders",
+  "mode": "sampled",
+  "start_seed": 300000,
+  "seed_count": 5,
+  "episodes_per_seed": 100,
+  "stages": [
+    "artifacts/minatar_nano/space_invaders/horizon_ablation_h3/cycle_0",
+    "artifacts/minatar_nano/space_invaders/oracle_actor_ablation_20261013/seed1_model",
+    "artifacts/minatar_nano/space_invaders/oracle_actor_ablation_20261013/seed1_real"
+  ],
+  "encoder_stages": [
+    "artifacts/minatar_nano/space_invaders/horizon_ablation_h3/cycle_0",
+    "artifacts/minatar_nano/space_invaders/horizon_ablation_h3/cycle_0",
+    "artifacts/minatar_nano/space_invaders/horizon_ablation_h3/cycle_0"
+  ],
+  "seeds": [
+    {
+      "seed": 300000,
+      "random": {
+        "mean_return": 4.14,
+        "median_length": 46.0,
+        "action_fractions": [
+          0.24607329842931938,
+          0.250633338963013,
+          0.25705117378821146,
+          0.24624218881945617
+        ]
+      },
+      "actor_0": {
+        "mean_return": 5.64,
+        "median_length": 28.0,
+        "action_fractions": [
+          0.13487241798298907,
+          0.16962332928311058,
+          0.14191980558930742,
+          0.553584447144593
+        ]
+      },
+      "actor_1": {
+        "mean_return": 4.66,
+        "median_length": 27.0,
+        "action_fractions": [
+          0.09095528455284553,
+          0.2660060975609756,
+          0.13821138211382114,
+          0.5048272357723578
+        ]
+      },
+      "actor_2": {
+        "mean_return": 6.29,
+        "median_length": 38.0,
+        "action_fractions": [
+          0.09996256083863722,
+          0.27854736053912393,
+          0.20497940846125046,
+          0.4165106701609884
+        ]
+      }
+    },
+    {
+      "seed": 300001,
+      "random": {
+        "mean_return": 4.25,
+        "median_length": 47.0,
+        "action_fractions": [
+          0.2537005163511188,
+          0.2621342512908778,
+          0.23717728055077453,
+          0.2469879518072289
+        ]
+      },
+      "actor_0": {
+        "mean_return": 5.92,
+        "median_length": 29.0,
+        "action_fractions": [
+          0.1406394810009268,
+          0.17284522706209454,
+          0.14295644114921224,
+          0.5435588507877664
+        ]
+      },
+      "actor_1": {
+        "mean_return": 4.93,
+        "median_length": 28.0,
+        "action_fractions": [
+          0.1027599802858551,
+          0.2661409561360276,
+          0.13701330704780681,
+          0.4940857565303105
+        ]
+      },
+      "actor_2": {
+        "mean_return": 6.85,
+        "median_length": 47.0,
+        "action_fractions": [
+          0.11319761319761319,
+          0.27202527202527205,
+          0.20463320463320464,
+          0.41014391014391016
+        ]
+      }
+    },
+    {
+      "seed": 300002,
+      "random": {
+        "mean_return": 4.55,
+        "median_length": 46.0,
+        "action_fractions": [
+          0.25055432372505543,
+          0.24970151799420093,
+          0.23503325942350334,
+          0.2647108988572403
+        ]
+      },
+      "actor_0": {
+        "mean_return": 6.24,
+        "median_length": 37.0,
+        "action_fractions": [
+          0.12614143130176259,
+          0.17859418135485242,
+          0.15565937566362284,
+          0.5396050116797622
+        ]
+      },
+      "actor_1": {
+        "mean_return": 5.46,
+        "median_length": 42.5,
+        "action_fractions": [
+          0.08797653958944282,
+          0.2497180239115723,
+          0.14324385292127229,
+          0.5190615835777126
+        ]
+      },
+      "actor_2": {
+        "mean_return": 6.66,
+        "median_length": 38.0,
+        "action_fractions": [
+          0.1024281805745554,
+          0.2795827633378933,
+          0.2060533515731874,
+          0.4119357045143639
+        ]
+      }
+    },
+    {
+      "seed": 300003,
+      "random": {
+        "mean_return": 4.08,
+        "median_length": 46.0,
+        "action_fractions": [
+          0.24636653668911734,
+          0.2513293158454449,
+          0.2585962424672102,
+          0.2437079049982276
+        ]
+      },
+      "actor_0": {
+        "mean_return": 5.6,
+        "median_length": 37.0,
+        "action_fractions": [
+          0.13413437959784208,
+          0.17042667974497303,
+          0.14222658165767532,
+          0.5532123589995096
+        ]
+      },
+      "actor_1": {
+        "mean_return": 5.1,
+        "median_length": 37.0,
+        "action_fractions": [
+          0.0960114640554096,
+          0.2491043706711249,
+          0.13852400286601385,
+          0.5163601624074516
+        ]
+      },
+      "actor_2": {
+        "mean_return": 6.61,
+        "median_length": 42.5,
+        "action_fractions": [
+          0.09996404171161452,
+          0.28137360661632504,
+          0.2087378640776699,
+          0.4099244875943905
+        ]
+      }
+    },
+    {
+      "seed": 300004,
+      "random": {
+        "mean_return": 4.21,
+        "median_length": 38.5,
+        "action_fractions": [
+          0.26488740617180984,
+          0.2525437864887406,
+          0.24854045037531275,
+          0.2340283569641368
+        ]
+      },
+      "actor_0": {
+        "mean_return": 5.93,
+        "median_length": 37.0,
+        "action_fractions": [
+          0.14046216583597643,
+          0.18214771182600817,
+          0.1515632079746262,
+          0.5258269143633892
+        ]
+      },
+      "actor_1": {
+        "mean_return": 4.97,
+        "median_length": 28.0,
+        "action_fractions": [
+          0.1002921129503408,
+          0.2709347614410906,
+          0.13972736124634857,
+          0.4890457643622201
+        ]
+      },
+      "actor_2": {
+        "mean_return": 6.1,
+        "median_length": 38.0,
+        "action_fractions": [
+          0.1094848888044098,
+          0.28150541722106065,
+          0.2060444782360768,
+          0.4029652157384528
+        ]
+      }
+    }
+  ],
+  "random_mean": 4.246,
+  "actor_0_mean": 5.866,
+  "actor_1_mean": 5.023999999999999,
+  "actor_2_mean": 6.502
+}

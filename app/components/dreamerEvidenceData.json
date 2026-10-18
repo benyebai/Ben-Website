@@ -1,0 +1,54 @@
+{
+  "oracle": [
+    {
+      "game": "Space Invaders",
+      "seed": 0,
+      "start": 5.956,
+      "model": 4.98,
+      "real": 7.212000000000001
+    },
+    {
+      "game": "Space Invaders",
+      "seed": 1,
+      "start": 5.866,
+      "model": 5.023999999999999,
+      "real": 6.502
+    },
+    {
+      "game": "Breakout",
+      "seed": 0,
+      "start": 1.318,
+      "model": 0.984,
+      "real": 3.1340000000000003
+    },
+    {
+      "game": "Breakout",
+      "seed": 1,
+      "start": 1.268,
+      "model": 1.064,
+      "real": 2.7840000000000003
+    }
+  ],
+  "timing": [
+    {
+      "horizon": 1,
+      "hits": 83,
+      "events": 116
+    },
+    {
+      "horizon": 3,
+      "hits": 23,
+      "events": 128
+    },
+    {
+      "horizon": 5,
+      "hits": 23,
+      "events": 124
+    },
+    {
+      "horizon": 8,
+      "hits": 1,
+      "events": 121
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "game": "breakout",
+  "mode": "greedy",
+  "start_seed": 280000,
+  "seed_count": 5,
+  "episodes_per_seed": 100,
+  "stages": [
+    "artifacts/minatar_nano/breakout/horizon_ablation_h1/cycle_0",
+    "artifacts/minatar_nano/breakout/oracle_actor_ablation_20261013/model",
+    "artifacts/minatar_nano/breakout/oracle_actor_ablation_20261013/real"
+  ],
+  "encoder_stages": [
+    "artifacts/minatar_nano/breakout/horizon_ablation_h1/cycle_0",
+    "artifacts/minatar_nano/breakout/horizon_ablation_h1/cycle_0",
+    "artifacts/minatar_nano/breakout/horizon_ablation_h1/cycle_0"
+  ],
+  "seeds": [
+    {
+      "seed": 280000,
+      "random": {
+        "mean_return": 0.45,
+        "median_length": 6.0,
+        "action_fractions": [
+          0.36079545454545453,
+          0.32859848484848486,
+          0.3106060606060606
+        ]
+      },
+      "actor_0": {
+        "mean_return": 1.35,
+        "median_length": 16.0,
+        "action_fractions": [
+          0.33401015228426395,
+          0.3065989847715736,
+          0.35939086294416245
+        ]
+      },
+      "actor_1": {
+        "mean_return": 1.04,
+        "median_length": 16.0,
+        "action_fractions": [
+          0.6180387409200968,
+          0.09382566585956416,
+          0.288135593220339
+        ]
+      },
+      "actor_2": {
+        "mean_return": 3.17,
+        "median_length": 38.0,
+        "action_fractions": [
+          0.6334170854271357,
+          0.18241206030150753,
+          0.1841708542713568
+        ]
+      }
+    },
+    {
+      "seed": 280001,
+      "random": {
+        "mean_return": 0.34,
+        "median_length": 6.0,
+        "action_fractions": [
+          0.3361522198731501,
+          0.3298097251585624,
+          0.33403805496828753
+        ]
+      },
+      "actor_0": {
+        "mean_return": 1.24,
+        "median_length": 16.0,
+        "action_fractions": [
+          0.36612903225806454,
+          0.2887096774193548,
+          0.34516129032258064
+        ]
+      },
+      "actor_1": {
+        "mean_return": 0.98,
+        "median_length": 16.0,
+        "action_fractions": [
+          0.6136934673366834,
+          0.09673366834170855,
+          0.28957286432160806
+        ]
+      },
+      "actor_2": {
+        "mean_return": 3.04,
+        "median_length": 38.0,
+        "action_fractions": [
+          0.6468129571577848,
+          0.17920585161964472,
+          0.17398119122257052
+        ]
+      }
+    },
+    {
+      "seed": 280002,
+      "random": {
+        "mean_return": 0.38,
+        "median_length": 6.0,
+        "action_fractions": [
+          0.33434959349593496,
+          0.3485772357723577,
+          0.3170731707317073
+        ]
+      },
+      "actor_0": {
+        "mean_return": 1.24,
+        "median_length": 16.0,
+        "action_fractions": [
+          0.3573735199138859,
+          0.2852529601722282,
+          0.3573735199138859
+        ]
+      },
+      "actor_1": {
+        "mean_return": 0.93,
+        "median_length": 16.0,
+        "action_fractions": [
+          0.6232258064516129,
+          0.08645161290322581,
+          0.2903225806451613
+        ]
+      },
+      "actor_2": {
+        "mean_return": 3.1,
+        "median_length": 38.0,
+        "action_fractions": [
+          0.633264992311635,
+          0.18400820092260378,
+          0.18272680676576114
+        ]
+      }
+    },
+    {
+      "seed": 280003,
+      "random": {
+        "mean_return": 0.43,
+        "median_length": 6.0,
+        "action_fractions": [
+          0.3508604206500956,
+          0.33460803059273425,
+          0.31453154875717015
+        ]
+      },
+      "actor_0": {
+        "mean_return": 1.44,
+        "median_length": 16.0,
+        "action_fractions": [
+          0.3458937198067633,
+          0.3033816425120773,
+          0.3507246376811594
+        ]
+      },
+      "actor_1": {
+        "mean_return": 1.03,
+        "median_length": 16.0,
+        "action_fractions": [
+          0.6091463414634146,
+          0.09329268292682927,
+          0.2975609756097561
+        ]
+      },
+      "actor_2": {
+        "mean_return": 3.14,
+        "median_length": 38.0,
+        "action_fractions": [
+          0.6458966565349544,
+          0.17958459979736577,
+          0.17451874366767983
+        ]
+      }
+    },
+    {
+      "seed": 280004,
+      "random": {
+        "mean_return": 0.39,
+        "median_length": 6.0,
+        "action_fractions": [
+          0.323,
+          0.331,
+          0.346
+        ]
+      },
+      "actor_0": {
+        "mean_return": 1.32,
+        "median_length": 16.0,
+        "action_fractions": [
+          0.36512820512820515,
+          0.2866666666666667,
+          0.3482051282051282
+        ]
+      },
+      "actor_1": {
+        "mean_return": 0.94,
+        "median_length": 16.0,
+        "action_fractions": [
+          0.6088917525773195,
+          0.09407216494845361,
+          0.2970360824742268
+        ]
+      },
+      "actor_2": {
+        "mean_return": 3.22,
+        "median_length": 38.0,
+        "action_fractions": [
+          0.6299603174603174,
+          0.1817956349206349,
+          0.18824404761904762
+        ]
+      }
+    }
+  ],
+  "random_mean": 0.39799999999999996,
+  "actor_0_mean": 1.318,
+  "actor_1_mean": 0.984,
+  "actor_2_mean": 3.1340000000000003
+}

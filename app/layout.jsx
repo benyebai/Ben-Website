@@ -1,5 +1,15 @@
+import localFont from "next/font/local";
 import "katex/dist/katex.min.css";
 import "./globals.css";
+
+const ranade = localFont({
+  src: "./fonts/Ranade-Medium.woff2",
+  weight: "500",
+  style: "normal",
+  display: "block",
+  preload: true,
+  variable: "--font-ranade",
+});
 
 export const metadata = {
   metadataBase: new URL("https://www.benjamin-bai.com"),
@@ -24,13 +34,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=ranade@400,500,700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>{children}</body>
+      <body className={ranade.variable}>{children}</body>
     </html>
   );
 }

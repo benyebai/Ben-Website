@@ -8,6 +8,7 @@ import ReadingPanel from "./components/ReadingPanel";
 import ThoughtArticlePanel from "./components/ThoughtArticlePanel";
 import ThoughtsPanel from "./components/ThoughtsPanel";
 import LeMarioPanel from "./components/LeMarioPanel";
+import NanoDreamerPanel from "./components/NanoDreamerPanel";
 import thoughts from "./content/thoughts";
 
 const navItems = [
@@ -22,6 +23,7 @@ const panelIds = [
   ...navItems.map((item) => item.id),
   "beyond-kv-cache",
   "lemario",
+  "nanodreamer",
   ...thoughtIds,
 ];
 
@@ -30,7 +32,7 @@ export default function Home({ initialPanel = "about" }) {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionScope, setTransitionScope] = useState("content");
   const activeThought = thoughts.find((thought) => thought.id === activePanel);
-  const isProjectWriteup = ["beyond-kv-cache", "lemario"].includes(activePanel);
+  const isProjectWriteup = ["beyond-kv-cache", "lemario", "nanodreamer"].includes(activePanel);
 
   useEffect(() => {
     const initialPanel = getPanelFromPath(window.location.pathname);
@@ -114,6 +116,7 @@ export default function Home({ initialPanel = "about" }) {
             <ProjectsPanel
               onOpenBeyondKvCache={() => showPanel("beyond-kv-cache", "shell")}
               onOpenLeMario={() => showPanel("lemario", "shell")}
+              onOpenNanoDreamer={() => showPanel("nanodreamer", "shell")}
             />
           )}
           {activePanel === "beyond-kv-cache" && (
@@ -121,6 +124,9 @@ export default function Home({ initialPanel = "about" }) {
           )}
           {activePanel === "lemario" && (
             <LeMarioPanel onBack={() => showPanel("projects", "shell")} />
+          )}
+          {activePanel === "nanodreamer" && (
+            <NanoDreamerPanel onBack={() => showPanel("projects", "shell")} />
           )}
           {activePanel === "thoughts" && (
             <ThoughtsPanel
@@ -150,6 +156,10 @@ function getPanelFromPath(pathname) {
 
   if (normalizedPath === "/projects/beyond-kv-cache") {
     return "beyond-kv-cache";
+  }
+
+  if (normalizedPath === "/projects/nanodreamer") {
+    return "nanodreamer";
   }
 
   if (
@@ -187,6 +197,10 @@ function getPathForPanel(panelId) {
     return "/projects/lemario";
   }
 
+  if (panelId === "nanodreamer") {
+    return "/projects/nanodreamer";
+  }
+
   if (thoughtIds.includes(panelId)) {
     return `/thoughts/${panelId}`;
   }
@@ -195,7 +209,7 @@ function getPathForPanel(panelId) {
 }
 
 function getNavId(panelId) {
-  if (["beyond-kv-cache", "lemario"].includes(panelId)) {
+  if (["beyond-kv-cache", "lemario", "nanodreamer"].includes(panelId)) {
     return "projects";
   }
 

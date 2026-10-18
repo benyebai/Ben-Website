@@ -2,6 +2,13 @@ import ListPanel from "./ListPanel";
 
 const projects = [
   {
+    id: "nanodreamer",
+    title: "NanoDreamer",
+    meta: "10.2026",
+    description:
+      "A small Dreamer-inspired MinAtar agent that learns a world model and trains its policy through imagined rollouts.",
+  },
+  {
     id: "lemario",
     title: "LeMario",
     meta: "07.2026",
@@ -17,8 +24,12 @@ const projects = [
   },
 ];
 
-export default function ProjectsPanel({ onOpenBeyondKvCache, onOpenLeMario }) {
+export default function ProjectsPanel({ onOpenBeyondKvCache, onOpenLeMario, onOpenNanoDreamer }) {
   function openProject(project) {
+    if (project.id === "nanodreamer") {
+      onOpenNanoDreamer();
+      return;
+    }
     if (project.id === "lemario") {
       onOpenLeMario();
       return;
