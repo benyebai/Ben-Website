@@ -1,0 +1,104 @@
+{
+  "steps": 150000,
+  "episodes": 100,
+  "cap": 200,
+  "evaluation_seed": 920000,
+  "rows": [
+    {
+      "game": "space_invaders",
+      "variant": "full",
+      "seed": 0,
+      "steps": 150000,
+      "score": 9.32,
+      "random": 3.53
+    },
+    {
+      "game": "space_invaders",
+      "variant": "imagined_critic",
+      "seed": 0,
+      "steps": 150000,
+      "score": 15.82,
+      "random": 3.53
+    },
+    {
+      "game": "breakout",
+      "variant": "full",
+      "seed": 0,
+      "steps": 150000,
+      "score": 2.92,
+      "random": 0.4
+    },
+    {
+      "game": "breakout",
+      "variant": "imagined_critic",
+      "seed": 0,
+      "steps": 150000,
+      "score": 4.82,
+      "random": 0.4
+    },
+    {
+      "game": "space_invaders",
+      "variant": "full",
+      "seed": 1,
+      "steps": 150000,
+      "score": 11.16,
+      "random": 3.53
+    },
+    {
+      "game": "space_invaders",
+      "variant": "imagined_critic",
+      "seed": 1,
+      "steps": 150000,
+      "score": 15.14,
+      "random": 3.53
+    },
+    {
+      "game": "space_invaders",
+      "variant": "imagined_critic_reconstruction_encoder",
+      "seed": 1,
+      "steps": 150000,
+      "score": 12.59,
+      "random": 3.53
+    },
+    {
+      "game": "breakout",
+      "variant": "full",
+      "seed": 1,
+      "steps": 150000,
+      "score": 1.48,
+      "random": 0.4
+    },
+    {
+      "game": "breakout",
+      "variant": "imagined_critic",
+      "seed": 1,
+      "steps": 150000,
+      "score": 1.4,
+      "random": 0.4
+    },
+    {
+      "game": "breakout",
+      "variant": "imagined_critic_reconstruction_encoder",
+      "seed": 1,
+      "steps": 150000,
+      "score": 5.08,
+      "random": 0.4
+    },
+    {
+      "game": "space_invaders",
+      "variant": "no_joint_encoder",
+      "seed": 0,
+      "steps": 150000,
+      "score": 11.26,
+      "random": 3.53
+    },
+    {
+      "game": "breakout",
+      "variant": "no_joint_encoder",
+      "seed": 0,
+      "steps": 150000,
+      "score": 2.98,
+      "random": 0.4
+    }
+  ]
+}

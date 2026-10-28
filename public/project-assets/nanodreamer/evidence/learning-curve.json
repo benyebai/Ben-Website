@@ -1,0 +1,75 @@
+{
+  "episodes": 100,
+  "cap": 200,
+  "note": "One training run per game. Evaluation seed blocks differ across checkpoints. Mean returns, no smoothing. These are separate 100-game checks from the 500-game final evaluation.",
+  "series": [
+    {
+      "game": "Space Invaders",
+      "limit": 15,
+      "points": [
+        {
+          "step": 50000,
+          "agent": 5.81,
+          "random": 4.77,
+          "evaluationSeed": 970000,
+          "source": "/project-assets/nanodreamer/evidence/space_invaders_eval_50000.json"
+        },
+        {
+          "step": 100000,
+          "agent": 10.52,
+          "random": 3.94,
+          "evaluationSeed": 1020000,
+          "source": "/project-assets/nanodreamer/evidence/space_invaders_eval_100000.json"
+        },
+        {
+          "step": 150000,
+          "agent": 11.14,
+          "random": 4.47,
+          "evaluationSeed": 1070000,
+          "source": "/project-assets/nanodreamer/evidence/space_invaders_eval_150000.json"
+        },
+        {
+          "step": 200000,
+          "agent": 12.87,
+          "random": 4.51,
+          "evaluationSeed": 1120000,
+          "source": "/project-assets/nanodreamer/evidence/space_invaders_eval_200000.json"
+        }
+      ]
+    },
+    {
+      "game": "Breakout",
+      "limit": 4,
+      "points": [
+        {
+          "step": 50000,
+          "agent": 2.96,
+          "random": 0.37,
+          "evaluationSeed": 970000,
+          "source": "/project-assets/nanodreamer/evidence/breakout_eval_50000.json"
+        },
+        {
+          "step": 100000,
+          "agent": 2.97,
+          "random": 0.29,
+          "evaluationSeed": 1020000,
+          "source": "/project-assets/nanodreamer/evidence/breakout_eval_100000.json"
+        },
+        {
+          "step": 150000,
+          "agent": 2.94,
+          "random": 0.24,
+          "evaluationSeed": 1070000,
+          "source": "/project-assets/nanodreamer/evidence/breakout_eval_150000.json"
+        },
+        {
+          "step": 200000,
+          "agent": 3.04,
+          "random": 0.44,
+          "evaluationSeed": 1120000,
+          "source": "/project-assets/nanodreamer/evidence/breakout_eval_200000.json"
+        }
+      ]
+    }
+  ]
+}

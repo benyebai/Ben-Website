@@ -13,10 +13,11 @@ export function WorldModelMath() {
   );
 }
 
-export function BehaviorMath() {
+export function BehaviorMath({ inline = false }) {
+  const Container = inline ? "div" : "details";
   return (
-    <details className="implementation-notes dreamer-math-details">
-      <summary><span>The math behind imagined practice</span></summary>
+    <Container className="implementation-notes dreamer-math-details">
+      {!inline && <summary><span>The math behind imagined practice</span></summary>}
       <div className="implementation-notes-body dreamer-math">
         <h5>1. Count rewards beyond the last imagined frame</h5>
         <BlockMath math={String.raw`\begin{aligned}G_t^\lambda &= \hat r_t + \gamma\hat c_t\big[(1-\lambda)\bar V(h_{t+1})+\lambda G_{t+1}^\lambda\big] \\ G_H^\lambda &= \bar V(h_H),\qquad H=5\end{aligned}`} />
@@ -25,9 +26,9 @@ export function BehaviorMath() {
         <BlockMath math={String.raw`\begin{aligned}A_t &= \operatorname{sg}\!\left(\frac{G_t^\lambda-V(h_t)}{\max(1,S)}\right) \\ \mathcal L_{\mathrm{actor}} &= -\mathbb E_t\!\left[w_t\left(A_t\log\pi(a_t\mid h_t)+10^{-3}\mathcal H(\pi(\cdot\mid h_t))\right)\right]\end{aligned}`} />
         <p>A positive advantage <InlineMath math="A_t" /> raises the probability of the sampled action; a negative one lowers it. <InlineMath math="S" /> is a running return scale. Entropy <InlineMath math="\mathcal H" /> encourages exploration, and <InlineMath math="w_t=\prod_{j<t}(\gamma\hat c_j)" /> discounts later imagined states. Gradients update the actor through its action log-probabilities; they do not pass through the world model.</p>
         <h5>3. Ground the critic in real experience</h5>
-        <BlockMath math={String.raw`\begin{aligned}\mathcal L_V ={}& \mathbb E_{\mathrm{replay}}\!\left[\omega\,\operatorname{CE}(q(G_{\mathrm{real}}^\lambda),p_V(\cdot\mid h))\right] \\ &+0.3\,\mathbb E_{\mathrm{imagined}}\!\left[w_t\operatorname{CE}(q(G_t^\lambda),p_V(\cdot\mid h_t))\right]\end{aligned}`} />
+        <BlockMath math={String.raw`\begin{aligned}\mathcal L_{\text{critic}} ={}& \mathbb E_{\mathrm{replay}}\!\left[\omega\,\operatorname{CE}(q(G_{\mathrm{real}}^\lambda),p_V(\cdot\mid h))\right] \\ &+0.3\,\mathbb E_{\mathrm{imagined}}\!\left[w_t\operatorname{CE}(q(G_t^\lambda),p_V(\cdot\mid h_t))\right]\end{aligned}`} />
         <p>The critic predicts a distribution over value bins. Cross-entropy trains it against real replay returns, plus a smaller imagined-return loss. <InlineMath math="\omega" /> is the replay importance weight. Both reward and value targets use <InlineMath math="q" />, a two-hot target: apply <InlineMath math="\operatorname{symlog}(u)=\operatorname{sign}(u)\log(1+|u|)" />, then split the target between neighboring bins. All return targets are detached during actor and critic updates.</p>
       </div>
-    </details>
+    </Container>
   );
 }

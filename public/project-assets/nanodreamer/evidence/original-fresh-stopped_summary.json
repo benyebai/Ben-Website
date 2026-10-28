@@ -1,0 +1,47 @@
+{
+  "space_invaders": {
+    "cycle": 51,
+    "policy_steps": 255503,
+    "seconds": 1558.710181091,
+    "evaluations": [
+      {
+        "step": 51508,
+        "agent": 4.13,
+        "random": 3.93
+      },
+      {
+        "step": 103045,
+        "agent": 4.9,
+        "random": 3.86
+      },
+      {
+        "step": 153694,
+        "agent": 4.6,
+        "random": 3.6
+      },
+      {
+        "step": 204887,
+        "agent": 4.24,
+        "random": 4.25
+      },
+      {
+        "step": 250464,
+        "agent": 4.68,
+        "random": 3.88
+      }
+    ]
+  },
+  "breakout": {
+    "cycle": 57,
+    "policy_steps": 50264,
+    "seconds": 1545.391453738,
+    "evaluations": [
+      {
+        "step": 50264,
+        "agent": 0.89,
+        "random": 0.4
+      }
+    ]
+  },
+  "status": "Stopped at user request before 500k endpoint. Not a completed 500k comparison."
+}

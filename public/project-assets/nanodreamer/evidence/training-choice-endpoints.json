@@ -1,0 +1,365 @@
+{
+  "note": "Endpoint evaluations use 300 episodes and cap 200. Seed-1 Space Invaders imagined critic stopped at 184712 policy steps. These endpoints are not all budget-matched.",
+  "pilot_seed0": [
+    {
+      "game": "space_invaders",
+      "variant": "full",
+      "result": {
+        "final_step": 200000,
+        "elapsed_seconds": 2055.7696506740003,
+        "agent_mean": 11.093333333333334,
+        "random_mean": 4.273333333333333
+      },
+      "fresh_eval.json": {
+        "agent": 11.093333333333334,
+        "random": 4.273333333333333
+      },
+      "progress": {
+        "step": 197864,
+        "seconds": 2012.571644212,
+        "recent_training_score": 11.45
+      },
+      "eval_50000.json": {
+        "agent": 6.4,
+        "random": 3.53
+      },
+      "eval_100000.json": {
+        "agent": 6.94,
+        "random": 3.53
+      },
+      "eval_150000.json": {
+        "agent": 9.32,
+        "random": 3.53
+      },
+      "eval_200000.json": {
+        "agent": 10.92,
+        "random": 3.53
+      }
+    },
+    {
+      "game": "space_invaders",
+      "variant": "no_joint_encoder",
+      "result": {
+        "final_step": 200000,
+        "elapsed_seconds": 2124.793665395,
+        "agent_mean": 13.096666666666666,
+        "random_mean": 4.273333333333333
+      },
+      "fresh_eval.json": {
+        "agent": 13.096666666666666,
+        "random": 4.273333333333333
+      },
+      "progress": {
+        "step": 197328,
+        "seconds": 2070.948791596,
+        "recent_training_score": 13.7
+      },
+      "eval_50000.json": {
+        "agent": 7.73,
+        "random": 3.53
+      },
+      "eval_100000.json": {
+        "agent": 9.89,
+        "random": 3.53
+      },
+      "eval_150000.json": {
+        "agent": 11.26,
+        "random": 3.53
+      },
+      "eval_200000.json": {
+        "agent": 13.8,
+        "random": 3.53
+      }
+    },
+    {
+      "game": "space_invaders",
+      "variant": "uniform_replay",
+      "result": {
+        "final_step": 200000,
+        "elapsed_seconds": 1979.674031367,
+        "agent_mean": 11.623333333333333,
+        "random_mean": 4.273333333333333
+      },
+      "fresh_eval.json": {
+        "agent": 11.623333333333333,
+        "random": 4.273333333333333
+      },
+      "progress": {
+        "step": 197816,
+        "seconds": 1938.895010324,
+        "recent_training_score": 11.31
+      },
+      "eval_50000.json": {
+        "agent": 5.55,
+        "random": 3.53
+      },
+      "eval_100000.json": {
+        "agent": 7.02,
+        "random": 3.53
+      },
+      "eval_150000.json": {
+        "agent": 8.43,
+        "random": 3.53
+      },
+      "eval_200000.json": {
+        "agent": 11.87,
+        "random": 3.53
+      }
+    },
+    {
+      "game": "space_invaders",
+      "variant": "imagined_critic",
+      "result": {
+        "final_step": 200000,
+        "elapsed_seconds": 2072.631266175,
+        "agent_mean": 17.66,
+        "random_mean": 4.273333333333333
+      },
+      "fresh_eval.json": {
+        "agent": 17.66,
+        "random": 4.273333333333333
+      },
+      "progress": {
+        "step": 198656,
+        "seconds": 2027.859387626,
+        "recent_training_score": 19.06
+      },
+      "eval_50000.json": {
+        "agent": 9.77,
+        "random": 3.53
+      },
+      "eval_100000.json": {
+        "agent": 11.98,
+        "random": 3.53
+      },
+      "eval_150000.json": {
+        "agent": 15.82,
+        "random": 3.53
+      },
+      "eval_200000.json": {
+        "agent": 18.65,
+        "random": 3.53
+      }
+    },
+    {
+      "game": "breakout",
+      "variant": "full",
+      "result": {
+        "final_step": 200000,
+        "elapsed_seconds": 2061.308346729,
+        "agent_mean": 3.41,
+        "random_mean": 0.3333333333333333
+      },
+      "fresh_eval.json": {
+        "agent": 3.41,
+        "random": 0.3333333333333333
+      },
+      "progress": {
+        "step": 199224,
+        "seconds": 2039.5626697369999,
+        "recent_training_score": 3.28
+      },
+      "eval_50000.json": {
+        "agent": 2.92,
+        "random": 0.4
+      },
+      "eval_100000.json": {
+        "agent": 2.99,
+        "random": 0.4
+      },
+      "eval_150000.json": {
+        "agent": 2.92,
+        "random": 0.4
+      },
+      "eval_200000.json": {
+        "agent": 3.39,
+        "random": 0.4
+      }
+    },
+    {
+      "game": "breakout",
+      "variant": "no_joint_encoder",
+      "result": {
+        "final_step": 200000,
+        "elapsed_seconds": 2014.383508058,
+        "agent_mean": 4.796666666666667,
+        "random_mean": 0.3333333333333333
+      },
+      "fresh_eval.json": {
+        "agent": 4.796666666666667,
+        "random": 0.3333333333333333
+      },
+      "progress": {
+        "step": 199749,
+        "seconds": 1993.5291216589999,
+        "recent_training_score": 3.79
+      },
+      "eval_50000.json": {
+        "agent": 2.83,
+        "random": 0.4
+      },
+      "eval_100000.json": {
+        "agent": 2.95,
+        "random": 0.4
+      },
+      "eval_150000.json": {
+        "agent": 2.98,
+        "random": 0.4
+      },
+      "eval_200000.json": {
+        "agent": 4.91,
+        "random": 0.4
+      }
+    },
+    {
+      "game": "breakout",
+      "variant": "uniform_replay",
+      "result": {
+        "final_step": 200000,
+        "elapsed_seconds": 2035.327649469,
+        "agent_mean": 4.116666666666666,
+        "random_mean": 0.3333333333333333
+      },
+      "fresh_eval.json": {
+        "agent": 4.116666666666666,
+        "random": 0.3333333333333333
+      },
+      "progress": {
+        "step": 199424,
+        "seconds": 2015.4060626560001,
+        "recent_training_score": 3.46
+      },
+      "eval_50000.json": {
+        "agent": 2.74,
+        "random": 0.4
+      },
+      "eval_100000.json": {
+        "agent": 3.01,
+        "random": 0.4
+      },
+      "eval_150000.json": {
+        "agent": 3.05,
+        "random": 0.4
+      },
+      "eval_200000.json": {
+        "agent": 4.06,
+        "random": 0.4
+      }
+    },
+    {
+      "game": "breakout",
+      "variant": "imagined_critic",
+      "result": {
+        "final_step": 200000,
+        "elapsed_seconds": 2078.4665262020003,
+        "agent_mean": 5.363333333333333,
+        "random_mean": 0.3333333333333333
+      },
+      "fresh_eval.json": {
+        "agent": 5.363333333333333,
+        "random": 0.3333333333333333
+      },
+      "progress": {
+        "step": 197744,
+        "seconds": 2036.505598285,
+        "recent_training_score": 5.09
+      },
+      "eval_50000.json": {
+        "agent": 2.92,
+        "random": 0.4
+      },
+      "eval_100000.json": {
+        "agent": 4.06,
+        "random": 0.4
+      },
+      "eval_150000.json": {
+        "agent": 4.82,
+        "random": 0.4
+      },
+      "eval_200000.json": {
+        "agent": 5.73,
+        "random": 0.4
+      }
+    }
+  ],
+  "followup_seed1": [
+    {
+      "game": "space_invaders",
+      "variant": "full",
+      "result.json": {
+        "final_step": 200000,
+        "agent_mean": 13.633333333333333,
+        "random_mean": 4.273333333333333
+      },
+      "metrics.jsonl": {
+        "step": 198912,
+        "seconds": 2883.1837526030004
+      }
+    },
+    {
+      "game": "space_invaders",
+      "variant": "imagined_critic",
+      "result.json": {
+        "final_step": 184712,
+        "agent_mean": 16.553333333333335,
+        "random_mean": 4.273333333333333
+      },
+      "metrics.jsonl": {
+        "step": 183688,
+        "seconds": 3283.086477595
+      }
+    },
+    {
+      "game": "space_invaders",
+      "variant": "imagined_critic_reconstruction_encoder",
+      "result.json": {
+        "final_step": 200000,
+        "agent_mean": 14.54,
+        "random_mean": 4.273333333333333
+      },
+      "metrics.jsonl": {
+        "step": 197664,
+        "seconds": 2060.726242347
+      }
+    },
+    {
+      "game": "breakout",
+      "variant": "full",
+      "result.json": {
+        "final_step": 200000,
+        "agent_mean": 1.5433333333333332,
+        "random_mean": 0.3333333333333333
+      },
+      "metrics.jsonl": {
+        "step": 198928,
+        "seconds": 2109.3814947600004
+      }
+    },
+    {
+      "game": "breakout",
+      "variant": "imagined_critic",
+      "result.json": {
+        "final_step": 200000,
+        "agent_mean": 1.4633333333333334,
+        "random_mean": 0.3333333333333333
+      },
+      "metrics.jsonl": {
+        "step": 197896,
+        "seconds": 2031.570788426
+      }
+    },
+    {
+      "game": "breakout",
+      "variant": "imagined_critic_reconstruction_encoder",
+      "result.json": {
+        "final_step": 200000,
+        "agent_mean": 4.823333333333333,
+        "random_mean": 0.3333333333333333
+      },
+      "metrics.jsonl": {
+        "step": 198609,
+        "seconds": 2512.1474353440003
+      }
+    }
+  ]
+}

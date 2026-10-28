@@ -1,8 +1,9 @@
 "use client";
+import { navigateNanoAnchor } from "./nanoAnchorNavigation";
 
 import { useRef, useState } from "react";
 
-function Architecture({ final, id }) {
+function Architecture({ final, id, links = false }) {
   const arrow = `url(#${id})`;
   const box = (x,y,w,h,title,detail,changed=false) => {
     const kind = ["Encoder", "Decoder"].includes(title) ? "vision" : ["Actor", "Critic"].includes(title) ? "control" : ["Next latent", "Reward", "Continuation", "Action MLP"].includes(title) ? "prediction" : title === "Transformer" ? "trunk" : "neutral";
@@ -23,13 +24,22 @@ function Architecture({ final, id }) {
     };
     const note = notes[title];
     const stacked = ["Transformer", "Latent history", "Frames"].includes(title);
-    return <g className={`nano-node nano-kind-${kind}${changed ? " nano-node-changed" : ""}`}>
+    const node = <g className={`nano-node nano-kind-${kind}${changed ? " nano-node-changed" : ""}`}>
       {stacked && <><rect className="nano-stack-back" x={x-12} y={y+12} width={w} height={h}/><rect className="nano-stack-back" x={x-6} y={y+6} width={w} height={h}/></>}
       <rect className="nano-node-face" x={x} y={y} width={w} height={h}/>
       <text x={x+w/2} y={y+h/2+(note ? -4 : 6)} textAnchor="middle" className="nano-node-title">{title}</text>
       {note && <text x={x+w/2} y={y+h/2+17} textAnchor="middle" className="nano-node-detail">{note}</text>}
       {changed && <circle className="nano-change-dot" cx={x+w-9} cy={y+9} r="3"/>}
     </g>;
+    const group = ["Encoder", "Decoder", "Frames"].includes(title) ? "encoder" : ["Transformer", "Latent history", "Next latent", "Reward", "Continuation", "Prediction loss", "Action MLP"].includes(title) ? "prediction" : "behavior";
+    const anchor = `${final ? "working" : "first"}-${group}`;
+    const jump = async element => {
+      element.closest("dialog")?.close();
+      await navigateNanoAnchor(`#${anchor}`);
+    };
+    return links ? <a href={`#${anchor}`} className="nano-component-link" aria-label={`Read about ${title}`} onClick={event => {
+      event.preventDefault(); event.stopPropagation(); jump(event.currentTarget);
+    }}>{node}</a> : node;
   };
   const line = (d, training=false) => <path d={d} className={training ? "nano-wire nano-wire-training" : "nano-wire"} markerEnd={arrow}/>;
   return <svg viewBox="0 0 1180 580" role="img" aria-labelledby={`${id}-title ${id}-desc`}>
@@ -66,6 +76,7 @@ function Architecture({ final, id }) {
     {box(30,520,280,54,"Actor objective","log probability × advantage")}
     {box(425,520,360,54,"Return targets","predicted rewards + critic bootstrap")}
     {box(900,520,240,54,"Critic objective",final ? "real replay + 0.3 × imagined" : "imagined return targets",final)}
+    {line("M 745 449 V 505 H 605 V 520",true)}
     {line("M 425 547 H 310",true)}{line("M 785 547 H 900",true)}
   </svg>;
 }
@@ -75,21 +86,23 @@ export default function DreamerArchitectureCompare({ initialTab = "first", inter
   const final = version === "final";
   const dialog = useRef(null);
   const trigger = useRef(null);
+  const enlarge = () => { if (!dialog.current.open) dialog.current.showModal(); };
   const versionControls = interactive && <div className="dreamer-compare-tabs" role="group" aria-label="Architecture version">
     <button type="button" aria-pressed={!final} onClick={() => setVersion("first")}>First draft</button>
     <button type="button" aria-pressed={final} onClick={() => setVersion("final")}>Working version · changes highlighted</button>
   </div>;
   return <figure className="dreamer-compare nano-architecture">
     {versionControls}
-    <button ref={trigger} type="button" className="nano-diagram-preview" aria-label="Enlarge architecture diagram" onClick={() => dialog.current.showModal()}>
-      <Architecture final={final} id={`nano-architecture-${initialTab}`}/>
-      <span className="nano-expand-label">↗ Click to enlarge</span>
-    </button>
-    <dialog ref={dialog} className="nano-diagram-modal" aria-label="Expanded NanoDreamer architecture" onClose={() => trigger.current?.focus()} onClick={event => { if (event.target === dialog.current) dialog.current.close(); }}>
+    <div className="nano-diagram-preview" onClick={enlarge}>
+      <Architecture final={final} links id={`nano-architecture-${initialTab}`}/>
+      <span className="nano-navigation-hint">Click a component to explore</span>
+      <button ref={trigger} type="button" className="nano-expand-label" aria-label="Enlarge architecture diagram" onClick={enlarge}>↗ Click to enlarge</button>
+    </div>
+    <dialog ref={dialog} className="nano-diagram-modal" aria-label="Expanded NanoDreamer architecture" onClose={() => trigger.current?.focus({ preventScroll: true })} onClick={event => { if (event.target === dialog.current) dialog.current.close(); }}>
       <div className="nano-modal-header"><strong>{final ? "Working NanoDreamer" : "First draft"}</strong><button type="button" autoFocus onClick={() => dialog.current.close()} aria-label="Close architecture diagram">Close ×</button></div>
       {versionControls}
-      <div className="nano-modal-canvas"><Architecture final={final} id={`nano-expanded-${initialTab}`}/></div>
-      <p className="nano-modal-note">Solid arrows: data flow · Dashed arrows: learning objectives · Green dots: changes from the first version</p>
+      <div className="nano-modal-canvas"><Architecture final={final} links id={`nano-expanded-${initialTab}`}/></div>
+      <p className="nano-modal-note">{final ? "Green dots mark changes from the first draft." : "Click a component to jump to its explanation."}</p>
     </dialog>
   </figure>;
 }

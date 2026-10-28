@@ -1,0 +1,158 @@
+{
+  "before": {
+    "game": "space_invaders",
+    "seed": 90000,
+    "contexts": 250,
+    "terminal_contexts": 30,
+    "horizons": {
+      "1": {
+        "latent_mse": 0.4729590698976397,
+        "reward_mse": 0.04612924284235798,
+        "reward_zero_mse": 0.06,
+        "cumulative_reward_mae": 0.11521229776639387,
+        "cumulative_reward_bias": -0.005144427043815617,
+        "reward_events": 15,
+        "predicted_reward_events": 8,
+        "correctly_timed_events": 4,
+        "missed_events": 11,
+        "extra_events": 4,
+        "reward_event_recall": 0.26666666666666666,
+        "continuation_brier": 0.000135163374596187
+      },
+      "2": {
+        "latent_mse": 0.7740235291238963,
+        "reward_mse": 0.05471539021321999,
+        "reward_zero_mse": 0.06,
+        "cumulative_reward_mae": 0.16898044808191448,
+        "cumulative_reward_bias": -0.016250550383922095,
+        "reward_events": 15,
+        "predicted_reward_events": 8,
+        "correctly_timed_events": 3,
+        "missed_events": 12,
+        "extra_events": 5,
+        "reward_event_recall": 0.2,
+        "continuation_brier": 2.3538984414654075e-05
+      },
+      "3": {
+        "latent_mse": 1.0766260925832853,
+        "reward_mse": 0.08360531728533357,
+        "reward_zero_mse": 0.096,
+        "cumulative_reward_mae": 0.21519715671168718,
+        "cumulative_reward_bias": -0.04888058164923043,
+        "reward_events": 24,
+        "predicted_reward_events": 9,
+        "correctly_timed_events": 5,
+        "missed_events": 19,
+        "extra_events": 4,
+        "reward_event_recall": 0.20833333333333334,
+        "continuation_brier": 6.6453723761816095e-06
+      },
+      "5": {
+        "latent_mse": 1.6671000697259832,
+        "reward_mse": 0.06769736029624937,
+        "reward_zero_mse": 0.056,
+        "cumulative_reward_mae": 0.29875173277788386,
+        "cumulative_reward_bias": -0.13686479841411586,
+        "reward_events": 14,
+        "predicted_reward_events": 3,
+        "correctly_timed_events": 0,
+        "missed_events": 14,
+        "extra_events": 3,
+        "reward_event_recall": 0.0,
+        "continuation_brier": 3.7702860876557275e-05
+      },
+      "8": {
+        "latent_mse": 2.2976047966322786,
+        "reward_mse": 0.09271859703179021,
+        "reward_zero_mse": 0.084,
+        "cumulative_reward_mae": 0.5089435443493836,
+        "cumulative_reward_bias": -0.35802106454424315,
+        "reward_events": 21,
+        "predicted_reward_events": 0,
+        "correctly_timed_events": 0,
+        "missed_events": 21,
+        "extra_events": 0,
+        "reward_event_recall": 0.0,
+        "continuation_brier": 0.11983221666827518
+      }
+    }
+  },
+  "after": {
+    "game": "space_invaders",
+    "seed": 90000,
+    "contexts": 250,
+    "terminal_contexts": 30,
+    "horizons": {
+      "1": {
+        "latent_mse": 0.49092244513045863,
+        "reward_mse": 0.04906409623830186,
+        "reward_zero_mse": 0.06,
+        "cumulative_reward_mae": 0.12621803467245715,
+        "cumulative_reward_bias": 0.00232722007666879,
+        "reward_events": 15,
+        "predicted_reward_events": 10,
+        "correctly_timed_events": 5,
+        "missed_events": 10,
+        "extra_events": 5,
+        "reward_event_recall": 0.3333333333333333,
+        "continuation_brier": 0.00031139732864683245
+      },
+      "2": {
+        "latent_mse": 0.7552530445521901,
+        "reward_mse": 0.05701889752662958,
+        "reward_zero_mse": 0.06,
+        "cumulative_reward_mae": 0.18388476819864213,
+        "cumulative_reward_bias": 0.0019667196102597043,
+        "reward_events": 15,
+        "predicted_reward_events": 9,
+        "correctly_timed_events": 3,
+        "missed_events": 12,
+        "extra_events": 6,
+        "reward_event_recall": 0.2,
+        "continuation_brier": 7.77995042506905e-05
+      },
+      "3": {
+        "latent_mse": 0.9971862533760364,
+        "reward_mse": 0.0749617816555468,
+        "reward_zero_mse": 0.096,
+        "cumulative_reward_mae": 0.22247794099758822,
+        "cumulative_reward_bias": -0.01839537438603491,
+        "reward_events": 24,
+        "predicted_reward_events": 11,
+        "correctly_timed_events": 5,
+        "missed_events": 19,
+        "extra_events": 6,
+        "reward_event_recall": 0.20833333333333334,
+        "continuation_brier": 3.806108431614476e-05
+      },
+      "5": {
+        "latent_mse": 1.3731462230889484,
+        "reward_mse": 0.061507573688286,
+        "reward_zero_mse": 0.056,
+        "cumulative_reward_mae": 0.27287504487801584,
+        "cumulative_reward_bias": -0.059443452937080754,
+        "reward_events": 14,
+        "predicted_reward_events": 2,
+        "correctly_timed_events": 0,
+        "missed_events": 14,
+        "extra_events": 2,
+        "reward_event_recall": 0.0,
+        "continuation_brier": 8.801745873488614e-05
+      },
+      "8": {
+        "latent_mse": 1.7598719130164069,
+        "reward_mse": 0.07771361370061436,
+        "reward_zero_mse": 0.084,
+        "cumulative_reward_mae": 0.42872213590712516,
+        "cumulative_reward_bias": -0.1791946410068509,
+        "reward_events": 21,
+        "predicted_reward_events": 0,
+        "correctly_timed_events": 0,
+        "missed_events": 21,
+        "extra_events": 0,
+        "reward_event_recall": 0.0,
+        "continuation_brier": 0.11943149761580621
+      }
+    }
+  }
+}

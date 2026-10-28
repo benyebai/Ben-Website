@@ -1,0 +1,32 @@
+[
+  {
+    "step": 51508,
+    "agent": 4.13,
+    "random": 3.93,
+    "episodes": 100
+  },
+  {
+    "step": 103045,
+    "agent": 4.9,
+    "random": 3.86,
+    "episodes": 100
+  },
+  {
+    "step": 153694,
+    "agent": 4.6,
+    "random": 3.6,
+    "episodes": 100
+  },
+  {
+    "step": 204887,
+    "agent": 4.24,
+    "random": 4.25,
+    "episodes": 100
+  },
+  {
+    "step": 250464,
+    "agent": 4.68,
+    "random": 3.88,
+    "episodes": 100
+  }
+]

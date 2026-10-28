@@ -9,6 +9,7 @@ import ThoughtArticlePanel from "./components/ThoughtArticlePanel";
 import ThoughtsPanel from "./components/ThoughtsPanel";
 import LeMarioPanel from "./components/LeMarioPanel";
 import NanoDreamerPanel from "./components/NanoDreamerPanel";
+import NanoDreamerFoundations from "./components/NanoDreamerFoundations";
 import thoughts from "./content/thoughts";
 
 const navItems = [
@@ -24,6 +25,7 @@ const panelIds = [
   "beyond-kv-cache",
   "lemario",
   "nanodreamer",
+  "nanodreamer-foundations",
   ...thoughtIds,
 ];
 
@@ -32,7 +34,7 @@ export default function Home({ initialPanel = "about" }) {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionScope, setTransitionScope] = useState("content");
   const activeThought = thoughts.find((thought) => thought.id === activePanel);
-  const isProjectWriteup = ["beyond-kv-cache", "lemario", "nanodreamer"].includes(activePanel);
+  const isProjectWriteup = ["beyond-kv-cache", "lemario", "nanodreamer", "nanodreamer-foundations"].includes(activePanel);
 
   useEffect(() => {
     const initialPanel = getPanelFromPath(window.location.pathname);
@@ -65,22 +67,36 @@ export default function Home({ initialPanel = "about" }) {
     };
   }, []);
 
-  function showPanel(id, scope = "content") {
+  function showPanel(id, scope = "content", anchor = "") {
     if (id === activePanel || isTransitioning) {
       return;
     }
 
-    window.history.pushState(null, "", getPathForPanel(id));
+    window.history.pushState(null, "", getPathForPanel(id) + anchor);
     setTransitionScope(scope);
     setIsTransitioning(true);
 
+    const articleChange = ["nanodreamer", "nanodreamer-foundations"].includes(id) && ["nanodreamer", "nanodreamer-foundations"].includes(activePanel);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.setTimeout(() => {
       setActivePanel(id);
-
       window.requestAnimationFrame(() => {
-        setIsTransitioning(false);
+        if (articleChange) {
+          const target = anchor ? document.getElementById(anchor.slice(1)) : null;
+          if (target) target.scrollIntoView({ behavior: "instant", block: "start" });
+          else window.scrollTo({ top: 0, behavior: "instant" });
+          const heading = document.querySelector(".article-panel h2");
+          if (heading && !anchor) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
+        }
+        window.requestAnimationFrame(() => setIsTransitioning(false));
       });
-    }, 220);
+    }, reducedMotion ? 0 : 220);
+  }
+
+  function followArticle(event, id, anchor = "") {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    showPanel(id, "content", anchor);
   }
 
   return (
@@ -126,8 +142,9 @@ export default function Home({ initialPanel = "about" }) {
             <LeMarioPanel onBack={() => showPanel("projects", "shell")} />
           )}
           {activePanel === "nanodreamer" && (
-            <NanoDreamerPanel onBack={() => showPanel("projects", "shell")} />
+            <NanoDreamerPanel onBack={() => showPanel("projects", "shell")} onOpenFoundations={event => followArticle(event, "nanodreamer-foundations")} />
           )}
+          {activePanel === "nanodreamer-foundations" && <NanoDreamerFoundations onBackToStory={(event, anchor) => followArticle(event, "nanodreamer", anchor)} />}
           {activePanel === "thoughts" && (
             <ThoughtsPanel
               onOpenThought={(thought) => showPanel(thought.id, "content")}
@@ -156,6 +173,10 @@ function getPanelFromPath(pathname) {
 
   if (normalizedPath === "/projects/beyond-kv-cache") {
     return "beyond-kv-cache";
+  }
+
+  if (normalizedPath === "/projects/nanodreamer/foundations") {
+    return "nanodreamer-foundations";
   }
 
   if (normalizedPath === "/projects/nanodreamer") {
@@ -197,6 +218,10 @@ function getPathForPanel(panelId) {
     return "/projects/lemario";
   }
 
+  if (panelId === "nanodreamer-foundations") {
+    return "/projects/nanodreamer/foundations";
+  }
+
   if (panelId === "nanodreamer") {
     return "/projects/nanodreamer";
   }
@@ -209,7 +234,7 @@ function getPathForPanel(panelId) {
 }
 
 function getNavId(panelId) {
-  if (["beyond-kv-cache", "lemario", "nanodreamer"].includes(panelId)) {
+  if (["beyond-kv-cache", "lemario", "nanodreamer", "nanodreamer-foundations"].includes(panelId)) {
     return "projects";
   }
 

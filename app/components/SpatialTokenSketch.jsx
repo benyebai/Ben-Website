@@ -18,6 +18,5 @@ export default function SpatialTokenSketch() {
       <span className="spatial-token-arrow" aria-hidden="true">→</span>
       <div className="spatial-token-sequence">{[1, 2, 3].map(frame => <div className="spatial-token-frame" key={frame}><small>frame {frame}</small><div className="spatial-region-tokens">{regions.map((region, index) => <span key={region} style={{ "--region": index }}>{frame}{region}</span>)}</div></div>)}</div>
     </div>
-    <figcaption>One token has to represent the whole frame. Four tokens keep its regions separate.</figcaption>
   </figure>;
 }

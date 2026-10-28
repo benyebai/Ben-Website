@@ -1,0 +1,95 @@
+{
+  "early": {
+    "windows": 1314,
+    "metrics": [
+      {
+        "step": 1,
+        "events": 93,
+        "hits": 53,
+        "falsePositives": 20,
+        "eventRecall": 0.5698924731182796,
+        "rewardMAE": 0.10980731181131134,
+        "cumulativeRewardMAE": 0.10980731181131134
+      },
+      {
+        "step": 3,
+        "events": 97,
+        "hits": 21,
+        "falsePositives": 14,
+        "eventRecall": 0.21649484536082475,
+        "rewardMAE": 0.12511540289033207,
+        "cumulativeRewardMAE": 0.20803362490106456
+      },
+      {
+        "step": 5,
+        "events": 95,
+        "hits": 6,
+        "falsePositives": 6,
+        "eventRecall": 0.06315789473684211,
+        "rewardMAE": 0.12924719004243865,
+        "cumulativeRewardMAE": 0.3133409306930702
+      },
+      {
+        "step": 8,
+        "events": 93,
+        "hits": 0,
+        "falsePositives": 4,
+        "eventRecall": 0.0,
+        "rewardMAE": 0.13728774589533177,
+        "cumulativeRewardMAE": 0.521243888434715
+      }
+    ],
+    "seed": 90000,
+    "episodes": 30,
+    "cap": 200,
+    "context": 8
+  },
+  "final": {
+    "seed": 90000,
+    "episodes": 30,
+    "cap": 200,
+    "context": 8,
+    "windows": 1314,
+    "checkpointSha256": "5890379754032ed067b2f4003a448ac9dd4e820534c29d34a06b640009a529da",
+    "protocol": "Uniform random actions; every eligible eight-step open-loop window with eight real context frames. Overlapping windows, reward threshold >0.5. No terminal crossings. One checkpoint; not a matched training ablation.",
+    "metrics": [
+      {
+        "step": 1,
+        "events": 93,
+        "hits": 81,
+        "falsePositives": 28,
+        "eventRecall": 0.8709677419354839,
+        "rewardMAE": 0.04282012636765005,
+        "cumulativeRewardMAE": 0.04282012636765005
+      },
+      {
+        "step": 3,
+        "events": 97,
+        "hits": 53,
+        "falsePositives": 21,
+        "eventRecall": 0.5463917525773195,
+        "rewardMAE": 0.05389662515264885,
+        "cumulativeRewardMAE": 0.08081862880240356
+      },
+      {
+        "step": 5,
+        "events": 95,
+        "hits": 40,
+        "falsePositives": 27,
+        "eventRecall": 0.42105263157894735,
+        "rewardMAE": 0.0640630332095055,
+        "cumulativeRewardMAE": 0.1245657708607521
+      },
+      {
+        "step": 8,
+        "events": 93,
+        "hits": 26,
+        "falsePositives": 38,
+        "eventRecall": 0.27956989247311825,
+        "rewardMAE": 0.08500540990713808,
+        "cumulativeRewardMAE": 0.21013677586573304
+      }
+    ]
+  },
+  "comparison": "Same random trajectories, actions, eight-frame histories, eligible windows and threshold. Different architectures and training budgets; this measures the checkpoint difference, not an isolated architectural effect."
+}

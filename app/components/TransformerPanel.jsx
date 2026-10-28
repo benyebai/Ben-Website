@@ -6,12 +6,13 @@ const tokenRows = [
   { token: "e", id: 43, tokenVector: "[ .0, .4, -.1, .5 ]", positionVector: "[ -.2, .1, .2, .1 ]", result: "[ -.2, .5, .1, .6 ]" },
 ];
 
-export default function TransformerPanel() {
+export default function TransformerPanel({ title = "From one attention head to a transformer" } = {}) {
   return (
-    <section className="article-section" aria-labelledby="transformer-title">
-      <h3 id="transformer-title">From one attention head to a transformer</h3>
-      <p>A transformer starts with a sequence, but it cannot work directly with text. My model is character-level, so the sentence fragment <code>To be</code> first becomes five token IDs: <code>[51, 54, 1, 40, 43]</code>. Each ID selects one learned row from an embedding table.</p>
-      <p>The token embedding says <em>what</em> the character is. A second learned embedding says <em>where</em> it appears. Adding them gives every character one starting vector containing both identity and position.</p>
+    <section className="article-section" aria-labelledby="attention-and-transformers">
+      <h3 id="attention-and-transformers">{title}</h3>
+      <p className="foundations-repo-link"><a href="https://github.com/benyebai/TinyTransformer" target="_blank" rel="noreferrer">TinyTransformer · View code on GitHub ↗</a></p>
+      <p>One frame wasn&apos;t enough to tell me where something was going. I needed a way to read a sequence. Before putting a transformer into the game model, I built a character-level one, <a href="https://github.com/benyebai/TinyTransformer" target="_blank" rel="noreferrer">TinyTransformer</a>. It was easier to check what was happening when the inputs were letters.</p>
+      <p>First, <code>To be</code> becomes token IDs, <code>[51, 54, 1, 40, 43]</code>. Each ID selects a row from a learned embedding table. It&apos;s a lookup, not a little network converting the number 51 into a vector. I added a learned position vector so the model could also tell where each character appeared.</p>
 
       <figure className="transformer-walkthrough">
         <div className="transformer-walkthrough-title">A toy 4-dimensional embedding of “To be”</div>
@@ -34,7 +35,7 @@ export default function TransformerPanel() {
         <figcaption>The values are small illustrative vectors. During training, the embedding tables learn values that make next-character prediction easier.</figcaption>
       </figure>
 
-      <p>Those starting vectors enter one causal attention head. The head makes three learned versions of every vector: a <strong>query</strong> describing what this position is looking for, a <strong>key</strong> describing what each earlier position offers, and a <strong>value</strong> containing the information that can be passed forward.</p>
+      <p>Then came attention. Each vector goes through three linear projections to make a <strong>query</strong>, <strong>key</strong>, and <strong>value</strong>. I compare a position&apos;s query with the available keys. Softmax turns those scores into weights, and I use them to mix the value vectors. That&apos;s how an earlier character can affect the current prediction.</p>
 
       <div className="transformer-flow" aria-label="One attention head scores query against keys, masks the future, applies softmax, and mixes values">
         <span>embedded sequence</span>
@@ -48,8 +49,8 @@ export default function TransformerPanel() {
         <span>weighted mix of V</span>
       </div>
 
-      <p>For the final <code>e</code>, attention can look back at <code>T</code>, <code>o</code>, the space, and <code>b</code>. For the first <code>T</code>, every later position is masked. That single rule is what prevents the model from cheating during next-token training.</p>
-      <p>One head produces one way of relating the sequence. Multi-head attention runs several independent heads in parallel, concatenates their outputs, and applies one final linear projection. The heads are not assigned jobs by hand; training lets them discover different useful relationships.</p>
+      <p>There was one obvious way to cheat. During training, the full sequence is right there. So I masked future positions before softmax. The final <code>e</code> can read itself and the earlier characters; the first <code>T</code> can only read itself. Each position has to predict the next character without seeing it.</p>
+      <p>I ran several attention heads in parallel, joined their outputs, and projected them back to the model width. With width 64 and four heads, each head handles 16 features. Joining them gives 64 again. I didn&apos;t assign the heads jobs. Their weights learned from the prediction loss.</p>
 
       <div className="transformer-heads" aria-label="Four attention heads are concatenated and projected">
         <div><span>head 1</span><span>head 2</span><span>head 3</span><span>head 4</span></div>
@@ -57,7 +58,7 @@ export default function TransformerPanel() {
         <strong>output projection</strong>
       </div>
 
-      <p>A transformer block wraps that multi-head attention with LayerNorm and a residual connection, then does the same around a small feed-forward network. Attention moves information between positions; the feed-forward network transforms the information inside each position.</p>
+      <p>A full block adds two more pieces. LayerNorm keeps each token&apos;s features normalized, and a residual connection adds the input back to the layer&apos;s output. After attention, a small feed-forward network transforms each position separately. I repeated that block to build the transformer.</p>
 
       <div className="transformer-stack" aria-label="Complete character transformer pipeline">
         <span>token + position embeddings</span><span aria-hidden="true">↓</span>
@@ -67,7 +68,7 @@ export default function TransformerPanel() {
         <span>one score for every possible next character</span>
       </div>
 
-      <p>Stacking blocks lets later layers reason over representations that earlier layers already contextualized. The final linear layer turns each position back into one score per vocabulary character. Cross-entropy raises the score of the correct next character, backpropagation carries that correction through every block, and the embedding, attention, and feed-forward weights all learn together.</p>
+      <p>At the end, a linear layer gives one score per possible next character. Cross-entropy compares those scores with the actual next character, and my autograd engine carries the error back through the whole thing. Embeddings, attention, and feed-forward layers all learn together. For NanoDreamer, I reused the causal sequence idea with game latents and actions, then predicted states, rewards, and continuation instead of letters.</p>
 
       <details className="implementation-notes tensor-implementation-notes">
         <summary><span>The part that finally made attention click for me</span></summary>

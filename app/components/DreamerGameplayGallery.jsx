@@ -56,7 +56,7 @@ const gameGuides = {
   Freeway: {
     goal: "Move the chicken up and down through traffic to reach the top. A collision sends it back to the bottom; a successful crossing starts another attempt.",
     legend: [
-      { colors: [blue], label: "Your chicken", detail: "moves vertically in the center column" },
+      { colors: ["#ffffff"], label: "Your chicken", detail: "moves vertically in the center column" },
       { colors: [lavender], label: "Cars", detail: "travel horizontally through the lanes" },
       { colors: [orange, yellow, green, pink, blue], label: "Car trails", detail: "position shows direction; color encodes speed" },
     ],
@@ -76,7 +76,7 @@ export default function DreamerGameplayGallery() {
       <div className="dreamer-demo-layout">
         <figure className="dreamer-demo-recording">
           <div className="dreamer-game-crop">
-            <img key={result.clip} src={`/project-assets/nanodreamer/${result.clip.replace(".gif", "-contrast.gif")}`} alt={`NanoDreamer playing ${result.game}`} width="500" height="555" />
+            <img key={result.clip} src={`/project-assets/nanodreamer/${result.game === "Freeway" ? "freeway-high-contrast-white-chicken.gif" : result.clip.replace(".gif", "-contrast.gif")}`} alt={`NanoDreamer playing ${result.game}`} width="500" height="555" />
           </div>
           <figcaption aria-live="polite">NanoDreamer playing {result.game}.</figcaption>
         </figure>

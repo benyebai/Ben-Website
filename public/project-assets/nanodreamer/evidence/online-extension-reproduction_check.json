@@ -1,0 +1,30 @@
+[
+  {
+    "cycle": 0,
+    "original_mean": 5.568,
+    "rerun_mean": 5.568,
+    "all_500_scores_identical": true,
+    "real_steps_identical": true
+  },
+  {
+    "cycle": 1,
+    "original_mean": 5.23,
+    "rerun_mean": 5.23,
+    "all_500_scores_identical": true,
+    "real_steps_identical": true
+  },
+  {
+    "cycle": 2,
+    "original_mean": 4.228,
+    "rerun_mean": 4.228,
+    "all_500_scores_identical": true,
+    "real_steps_identical": true
+  },
+  {
+    "cycle": 3,
+    "original_mean": 3.778,
+    "rerun_mean": 3.778,
+    "all_500_scores_identical": true,
+    "real_steps_identical": true
+  }
+]

@@ -27,12 +27,13 @@ function highlightCode(source) {
   });
 }
 
-export default function MiniNNPanel() {
+export default function MiniNNPanel({ title = "From tensors to a neural-network framework" } = {}) {
   return (
-    <section className="article-section" aria-labelledby="mininn-title">
-      <h3 id="mininn-title">From tensors to a neural-network framework</h3>
-      <p>TensorGrad could calculate gradients, but it did not yet provide a convenient way to build and train models. MiniNN added the abstractions that turn an autodiff engine into a small machine-learning framework.</p>
-      <p>A <code>Parameter</code> is a Tensor marked as trainable. A <code>Module</code> owns parameters and performs a computation. Linear layers, activation functions, and entire models all follow the same interface, so they can be composed with <code>Sequential</code>.</p>
+    <section className="article-section" aria-labelledby="neural-networks-and-optimizers">
+      <h3 id="neural-networks-and-optimizers">{title}</h3>
+      <p className="foundations-repo-link"><a href="https://github.com/benyebai/MiniNN" target="_blank" rel="noreferrer">MiniNN · View code on GitHub ↗</a></p>
+      <p>TensorGrad could tell me how to change a weight. Now I needed a way to organize a whole network without manually tracking every weight myself. So I built <a href="https://github.com/benyebai/MiniNN" target="_blank" rel="noreferrer">MiniNN</a>.</p>
+      <p>The basic layer was <code>y = xW + b</code>. W and b are trainable tensors, which I called <code>Parameter</code>s. I wrapped the calculation in a <code>Module</code> so a layer knew how to run itself and return the parameters it owned.</p>
 
       <figure className="mininn-code-card">
         <div className="mininn-code-title">The Module base class</div>
@@ -40,8 +41,8 @@ export default function MiniNNPanel() {
         <figcaption>Every layer uses the same three entry points.</figcaption>
       </figure>
 
-      <p>This small class is what made the rest of MiniNN click for me. <code>__call__()</code> says how a module transforms its input. <code>parameters()</code> tells the optimizer which tensors it can train. <code>zero_grad()</code> clears their old gradients before the next backward pass.</p>
-      <p>The building blocks are modules too: <code>Linear</code> owns weights and a bias, while <code>SiLU</code> has no parameters and just transforms its input. <code>Sequential</code> is a module that calls other modules in order and gathers their parameters. That means a whole model can be used just like one layer.</p>
+      <p>That&apos;s most of the base class! <code>__call__()</code> runs the calculation, <code>parameters()</code> finds the trainable tensors, and <code>zero_grad()</code> clears their previous gradients. I needed that last step because backward adds contributions. Forget to clear them and the next update includes the last batch too.</p>
+      <p>I could then stack <code>Linear → activation → Linear</code> with <code>Sequential</code>. The activation matters. Without a nonlinearity between them, two linear layers still describe one linear transformation. Adding Tanh or SiLU lets the network learn more interesting functions.</p>
 
       <div className="mininn-stack" aria-label="TensorGrad provides tensors, MiniNN adds parameters and modules, which compose into a Linear, SiLU, Linear, Softmax model">
         <span>TensorGrad</span><span aria-hidden="true">↓</span>
@@ -50,9 +51,9 @@ export default function MiniNNPanel() {
         <span>Linear → SiLU → Linear → Softmax</span>
       </div>
 
-      <p>The optimizer receives references to the model&apos;s parameters. Backpropagation writes gradients into those parameters, and the optimizer uses the gradients to update their values. Because everything references the same objects, the model automatically uses the updated weights on its next forward pass.</p>
+      <p>The training loop finally came together. Predict, calculate a loss, clear the gradients, run backward, then update the weights. For basic gradient descent, the update is just <code>weight -= learning_rate × gradient</code>. Backprop calculates the direction of increasing loss, so we take a small step the other way.</p>
       <p>I tested MiniNN by training a small MNIST classifier: <code>784 inputs → 128 hidden features → 10 digit probabilities</code>. The network contained 101,770 trainable parameters and reached <strong>95.56% test accuracy after 30 epochs</strong>.</p>
-      <p>What interested me most was how a few abstractions separated responsibilities cleanly. TensorGrad handled calculus. Modules organized computations. Parameters identified trainable state. The optimizer handled learning. None of these pieces knew much about the others, but together they formed a complete training system.</p>
+      <p>Seeing that MNIST result was reassuring. These weren&apos;t just classes that looked like a framework anymore. The gradients and updates were actually training a network. I also built Adam, which tracks recent gradients and their scale to adapt each weight&apos;s update. The MNIST check above used SGD.</p>
 
       <details className="implementation-notes tensor-implementation-notes">
         <summary><span>The technical details I found interesting</span></summary>
